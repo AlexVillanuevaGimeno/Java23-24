@@ -15,36 +15,34 @@ fetch(apiUrl)
         return response.json();
     })
     .then((data) => {
-        
-         document.getElementById("img").src = data.photos[0].img_src;
-         document.getElementById("cameraFullName").p = data.photos[0].camera.full_name;
-         document.getElementById("earthDate").p = data.photos[0].earth_date;
-        console.log(data);
-        
-        data.photos.forEach(photo => {
-            // Crear elementos HTML dinámicamente
-        var bloque = document.getElementById("BloquePrincipal");
-
-        // Crear una imagen
-        var imagen = document.createElement("img");
-        imagen.src = "http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01000/opgs/edr/fcam/FLB_486265257EDR_F0481570FHAZ00323M_.JPG"; // Reemplaza con la URL de tu imagen
-        bloque.appendChild(imagen);
-
-        // Crear un título
-        var titulo = document.createElement("h1");
-        titulo.textContent = "Título del bloque";
-        bloque.appendChild(titulo);
-
-        // Crear un cuadro de texto
-        var cuadroTexto = document.createElement("textarea");
-        cuadroTexto.rows = 5;
-        cuadroTexto.cols = 30;
-        bloque.appendChild(cuadroTexto);
-
-        });
-
-        
+        printar(data);   
     })
     .catch((error) => {
         console.error('Ocurrió un error:', error);
     });
+
+    function printar(data) {
+        data.photos.forEach(obj => {
+          let bloqueFoto = document.createElement("div");
+          bloqueFoto.className = "bloqueFoto";
+          let img = document.createElement("img");
+          img.id = "img"; 
+          let detalles = document.createElement("div");
+          detalles.className = "detalles";
+          let camera = document.createElement("div");
+          camera.className = "camera";
+          let date = document.createElement("div");
+          date.className = "date";
+      
+          let container = document.getElementById("container");
+          container.appendChild(bloqueFoto);
+          bloqueFoto.append(img,detalles);
+      
+          detalles.append(camera,date);
+      
+          img.src = obj.img_src;
+          camera.innerHTML = "Camera: "+ obj.camera.full_name;
+          date.innerHTML = "Earth Date: "+obj.earth_date;
+      
+        });
+      }
