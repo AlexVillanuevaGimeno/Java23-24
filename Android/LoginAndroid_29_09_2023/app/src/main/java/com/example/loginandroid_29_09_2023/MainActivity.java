@@ -6,12 +6,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.loginandroid_29_09_2023.actions.ServicePeliculas;
+import com.example.loginandroid_29_09_2023.actions.ViewPeliculas;
+
+import kotlin.contracts.Returns;
+
+public class MainActivity extends AppCompatActivity implements ViewPeliculas {
     private EditText edtEmail;
     private EditText edtPassword;
     private Button btnLogin;
 
+    private ServicePeliculas sPeliculas = new ServicePeliculas(this);
+
+private static MainActivity mainActivity = null;
+public static  MainActivity getInstance(){return mainActivity;}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Toast.makeText(MainActivity.this, "Welcome To Miami!!!", Toast.LENGTH_SHORT).show();
             }
         });
     }
