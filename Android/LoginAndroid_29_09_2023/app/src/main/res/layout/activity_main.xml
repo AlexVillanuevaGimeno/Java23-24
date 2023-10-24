@@ -21,7 +21,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_location_on_24"/>
+            android:src="@drawable/location_on"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,7 +66,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:drawableEnd="@drawable/done_icon"
-                android:id="@+id/edtEmail"/>
+                android:id="@+id/edtEmail"
+                />
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"/>
@@ -80,8 +81,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:drawableEnd="@drawable/password_icon"
-                android:id="@+id/edtPassword"/>
+                android:id="@+id/edtPassword"
+                android:drawableEnd="@drawable/password_icon"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -110,7 +111,8 @@
                 android:layout_height="60dp"
                 android:text="Login"
                 app:cornerRadius="32dp"
-                android:id="@+id/btnLogin"/>
+                android:id="@+id/btnLogin"
+                />
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="10dp"/>
