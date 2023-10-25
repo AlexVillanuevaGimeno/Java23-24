@@ -10,9 +10,11 @@ import android.widget.Toast;
 
 import com.example.loginandroid_29_09_2023.actions.ServicePeliculas;
 import com.example.loginandroid_29_09_2023.actions.ViewPeliculas;
+import com.example.loginandroid_29_09_2023.beans.User;
+import com.example.loginandroid_29_09_2023.login_user.ContractLoginUser;
 
 public class MainActivity extends AppCompatActivity
-                        implements ViewPeliculas {
+                        implements ViewPeliculas, ContractLoginUser.View {
     private EditText edtEmail;
     private EditText edtPassword;
     private Button btnLogin;
@@ -48,6 +50,16 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void showPeliculas(String message) {
+
+    }
+
+    @Override
+    public void succesLogin(User user) {
+        
+    }
+
+    @Override
+    public void failureLogin(String err) {
 
     }
 }
