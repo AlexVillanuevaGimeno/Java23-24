@@ -2,7 +2,6 @@ package com.example.videomovies.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.RoundedCorner;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -10,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.example.videomovies.Domian.SliderItems;
+import com.example.videomovies.Domain.SliderItems;
 import com.example.videomovies.R;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.videomovies.Domian;
+package com.example.videomovies.Domain;
 
 public class SliderItems {
     private int image
