@@ -1,7 +1,7 @@
 package com.example.videomovies.Domain;
 
 public class SliderItems {
-    private int image
+    private int image;
 
     public SliderItems(int image) {
         this.image = image;

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
@@ -16,6 +17,7 @@ import java.util.List;
 
 public class SliderAdapters extends RecyclerView.Adapter<SliderAdapters.SliderViewHolder> {
     private List<SliderItems> sliderItems;
+
     private ViewPager2 viewPager2;
     private Context context;
 
