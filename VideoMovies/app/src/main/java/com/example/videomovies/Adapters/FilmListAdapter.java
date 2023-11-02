@@ -8,10 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.android.volley.Request;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.videomovies.Activities.DetailActivity;
 import com.example.videomovies.Domain.ListFilm;
 import com.example.videomovies.R;
@@ -36,7 +39,7 @@ public class FilmListAdapter extends RecyclerView.Adapter<FilmListAdapter.ViewHo
     public void onBindViewHolder(@NonNull FilmListAdapter.ViewHolder holder, int position) {
     holder.titleText.setText(items.getData().get(position).getTitle());
     RequestOptions requestOptions = new RequestOptions();
-        requestOptions=requestOptions.transform(new CenterCrop, new RoundedCorners(30));
+        requestOptions=requestOptions.transform(new CenterCrop(), new RoundedCorners(30));
 
         Glide.with(context)
                 .load(items.getData().get(position).getPoster())

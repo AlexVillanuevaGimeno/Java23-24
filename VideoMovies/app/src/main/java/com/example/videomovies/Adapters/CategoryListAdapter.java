@@ -37,8 +37,6 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
     @Override
     public void onBindViewHolder(@NonNull CategoryListAdapter.ViewHolder holder, int position) {
     holder.TitleTxt.setText(items.get(position).getName());
-
-
         holder.itemView.setOnClickListener(v -> {
         });
     }

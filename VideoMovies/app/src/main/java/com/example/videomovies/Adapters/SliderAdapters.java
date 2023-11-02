@@ -4,12 +4,17 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.videomovies.Domain.SliderItems;
 import com.example.videomovies.R;
 
@@ -37,7 +42,7 @@ public class SliderAdapters extends RecyclerView.Adapter<SliderAdapters.SliderVi
 
     @Override
     public void onBindViewHolder(@NonNull SliderAdapters.SliderViewHolder holder, int position) {
-holder.setImage(SliderItems.get(position));
+        holder.setImage(sliderItems.get(position));
     if(position== sliderItems.size()-2){
         viewPager2.post(runnable);
     }
@@ -55,12 +60,13 @@ holder.setImage(SliderItems.get(position));
             super(itemView);
             imageView=itemView.findViewById(R.id.imageSlide);
         }
+
         void setImage(SliderItems sliderItems){
             RequestOptions requestOptions =new RequestOptions();
             requestOptions=requestOptions.transform(new CenterCrop(),new RoundedCorners(60));
 
             Glide.with(context)
-                    .load(SliderItems.getImage())
+                    .load(sliderItems.getImage())
                     .apply(requestOptions)
                     .into(imageView);
         }
