@@ -48,14 +48,41 @@ public class MyServlet  extends HttpServlet {
             userList.add(user1);
             userList.add(user2);
 
+            String peliculas = "{\n" +
+                    "    \"message\": \"Este es un mensaje de ejemplo\",\n" +
+                    "    \"lstPeliculas\": [\n" +
+                    "        {\n" +
+                    "            \"id\": 1,\n" +
+                    "            \"titulo\": \"Pelicula 1\",\n" +
+                    "            \"descripcion\": \"Descripción de la Pelicula 1\",\n" +
+                    "            \"director\": \"Director 1\",\n" +
+                    "            \"anyo\": 2022\n" +
+                    "        },\n" +
+                    "        {\n" +
+                    "            \"id\": 2,\n" +
+                    "            \"titulo\": \"Pelicula 2\",\n" +
+                    "            \"descripcion\": \"Descripción de la Pelicula 2\",\n" +
+                    "            \"director\": \"Director 2\",\n" +
+                    "            \"anyo\": 2023\n" +
+                    "        },\n" +
+                    "        {\n" +
+                    "            \"id\": 3,\n" +
+                    "            \"titulo\": \"Pelicula 3\",\n" +
+                    "            \"descripcion\": \"Descripción de la Pelicula 3\",\n" +
+                    "            \"director\": \"Director 3\",\n" +
+                    "            \"anyo\": 2021\n" +
+                    "        }\n" +
+                    "    ]\n" +
+                    "}";
             //out.print(convertUsersToJSONString(userList));
-            out.print(jsonResponseObject);
+            // out.print(jsonResponseObject);
 
             // Escribir el JSON en el PrintWriter
             //out.print(jsonResponse);
             /*request.setAttribute("message", message);
             request.getRequestDispatcher("/index.jsp").forward(request, response);
              */
+            out.print(peliculas);
             out.close();
         }
 

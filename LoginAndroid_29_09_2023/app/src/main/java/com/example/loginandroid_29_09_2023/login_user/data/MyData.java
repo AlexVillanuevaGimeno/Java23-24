@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public class MyData {
     private String message;
-
     private ArrayList<User> lstUsers;
 
 

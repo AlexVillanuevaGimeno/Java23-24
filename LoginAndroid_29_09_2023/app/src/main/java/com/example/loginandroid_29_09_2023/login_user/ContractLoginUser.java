@@ -21,6 +21,7 @@ public interface ContractLoginUser {
             void onFinished(User user);
             void onFailure(String err);
         }
-        void loginAPI(User user, OnLoginUserListener onLoginUserListener);
+        void loginAPI(User user,
+                      OnLoginUserListener onLoginUserListener);
     }
 }
