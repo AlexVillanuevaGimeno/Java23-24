@@ -13,11 +13,12 @@ public interface ApiService {
             "Accept: application/json",
             "Content-Type: application/json"
     })
-    Call<DataUser> getDataUser(@Query("ACTION") String action);
     @GET("MyServlet")
-      Call<DataUser> getDataUser(@Query("ACTION") String action,
-                               @Query("EMAIL") String email,
-                               @Query("PASSWORD") String pass);
+    Call<DataUser> getDataUser(@Query("ACTION") String action);
+//    @GET("MyServlet")
+//      Call<DataUser> getDataUser(@Query("ACTION") String action,
+//                               @Query("EMAIL") String email,
+//                               @Query("PASSWORD") String pass);
 
 //    @GET("MyServlet")
 //    Call<DataMovies> getDataMovies(@Query("ACTION") String action);
