@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
-    tools:context=".Login">
+    android:background="@drawable/bg">
 
 
     <RelativeLayout
@@ -76,6 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:id="@+id/edtEmail"
                 android:drawableEnd="@drawable/done_icon"/>
 
             <View
@@ -91,6 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:id="@+id/edtPassword"
                 android:drawableEnd="@drawable/password_icon"/>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -118,6 +119,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="Login"
+                android:id="@+id/btnLogin"
                 app:cornerRadius="32dp" />
             <View
                 android:layout_width="wrap_content"
