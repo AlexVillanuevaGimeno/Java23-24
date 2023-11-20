@@ -1,6 +1,7 @@
 package com.example.proy1bueno.login_user.view;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,8 +47,9 @@ public class LoginUser extends AppCompatActivity implements ContractLoginUser.Vi
                 //Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show();
                 //sPeliculas.getDatosPeliculas();
                 User user = new User();
-                user.setUsername("akkarihdez@gmail.com");
-                user.setToken("1234");
+                user.setUsername(edtEmail.getText().toString());
+                user.setPassword(edtPassword.getText().toString());
+                Log.e("User To string","User: " + user);
                 presenter.login(user);
             }
         });

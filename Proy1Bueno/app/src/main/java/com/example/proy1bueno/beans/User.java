@@ -2,11 +2,11 @@ package com.example.proy1bueno.beans;
 
 public class User {
     private String username;
-    private String token; // Puedes agregar otros campos segÃºn tus necesidades
+    private String password; // Puedes agregar otros campos segÃºn tus necesidades
 
-    public User(String username, String token) {
+    public User(String username, String password) {
         this.username = username;
-        this.token = token;
+        this.password = password;
     }
     public User() {
     }
@@ -18,12 +18,19 @@ public class User {
         this.username = username;
     }
 
-    public String getToken() {
-        return token;
+    public String getPassword() {
+        return password;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

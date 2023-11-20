@@ -21,7 +21,7 @@ import retrofit2.Response;
 
 public class LoginUserModel implements ContractLoginUser.Model {
 
-    private static final String IP_BASE = "192.168.1.132:8080";
+    private static final String IP_BASE = "192.168.1.132:8088";
     private LoginUserPresenter presenter;
     public LoginUserModel(LoginUserPresenter presenter){
         this.presenter = presenter;
@@ -33,22 +33,25 @@ public class LoginUserModel implements ContractLoginUser.Model {
         // Crear una instancia de ApiService
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);
+        Log.e("Apiservice","Apiservice" + apiService);
 
 // Realizar la solicitud al Servlet
         // Call<MyData> call = apiService.getMyData("1");
         Call<DataUser> call = apiService.getDataUser ("USER.LOGIN");
+        Log.e("call","call" + call);
+
         call.enqueue(new Callback<DataUser>() {
             @Override
             public void onResponse(Call<DataUser> call, Response<DataUser> response) {
                 if (response.isSuccessful()) {
                     // Procesar la respuesta aquÃ­
                     DataUser dataUser = response.body();
-
+                    Log.e("DataUser: " ,"Data:User" + dataUser);
                     //String message = myData.getMessage();
 
                     ArrayList<User> lstUsers = dataUser.getLstUsers();
 
-                    onLoginUserListener.onFinished(lstUsers.get(0));
+//                    onLoginUserListener.onFinished(lstUsers.get(0));
 
                     // Actualizar la interfaz de usuario con el mensaje recibido
                 } else {
