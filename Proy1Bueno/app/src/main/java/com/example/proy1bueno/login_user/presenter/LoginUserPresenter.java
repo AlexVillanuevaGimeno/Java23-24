@@ -1,4 +1,4 @@
-package com.example.proy1bueno.login_user.persenter;
+package com.example.proy1bueno.login_user.presenter;
 
 import com.example.proy1bueno.beans.User;
 import com.example.proy1bueno.login_user.ContractLoginUser;
@@ -13,9 +13,8 @@ public class LoginUserPresenter implements ContractLoginUser.Presenter, Contract
         model = new LoginUserModel(this);
     }
     @Override
-    public void login(User user) {
-        model.loginAPI(user, this);
-    }
+    public void login(User user) {model.loginAPI(user, this);}
+
 
     @Override
     public void onFinished(User user) {

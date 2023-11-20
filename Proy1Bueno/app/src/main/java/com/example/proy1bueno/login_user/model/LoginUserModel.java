@@ -6,7 +6,7 @@ import android.util.Log;
 import com.example.proy1bueno.beans.User;
 import com.example.proy1bueno.login_user.ContractLoginUser;
 import com.example.proy1bueno.login_user.data.DataUser;
-import com.example.proy1bueno.login_user.persenter.LoginUserPresenter;
+import com.example.proy1bueno.login_user.presenter.LoginUserPresenter;
 import com.example.proy1bueno.utils.ApiService;
 import com.example.proy1bueno.utils.RetrofitCliente;
 
@@ -37,26 +37,27 @@ public class LoginUserModel implements ContractLoginUser.Model {
 
 // Realizar la solicitud al Servlet
         // Call<MyData> call = apiService.getMyData("1");
-        Call<DataUser> call = apiService.getDataUser ("USER.LOGIN");
+        Call<DataUser> call = apiService.getDataLoginUser("USER.LOGIN", user.getUsername(), user.getPassword());
         Log.e("call","call" + call);
 
         call.enqueue(new Callback<DataUser>() {
             @Override
             public void onResponse(Call<DataUser> call, Response<DataUser> response) {
                 if (response.isSuccessful()) {
-                    // Procesar la respuesta aquÃ­
+                    Log.e("Response", "Response: " + response);
                     DataUser dataUser = response.body();
-                    Log.e("DataUser: " ,"Data:User" + dataUser);
-                    //String message = myData.getMessage();
-
                     ArrayList<User> lstUsers = dataUser.getLstUsers();
+                    Log.e("LSTUSERS","LST USERS" +  lstUsers);
+                    Log.e("dataUser","dataUser" +  dataUser);
 
-//                    onLoginUserListener.onFinished(lstUsers.get(0));
 
-                    // Actualizar la interfaz de usuario con el mensaje recibido
+                    try {
+                        onLoginUserListener.onFinished(lstUsers.get(0));
+
+                    }catch(IndexOutOfBoundsException e){
+                        Log.e("No Found User","no user exists");
+                    }
                 } else {
-                    // Manejar una respuesta no exitosa
-                    // Manejar una respuesta no exitosa
                     Log.e("Response Error", "CÃ³digo de estado HTTP: " + response.code());
                     try {
                         String errorBody = response.errorBody().string();

@@ -1,5 +1,6 @@
 package com.example.proy1bueno.utils;
 
+import com.example.proy1bueno.listProductsUser.data.DataProduct;
 import com.example.proy1bueno.login_user.data.DataUser;
 
 import retrofit2.Call;
@@ -13,12 +14,12 @@ public interface ApiService {
             "Accept: application/json",
             "Content-Type: application/json"
     })
+
     @GET("MyServlet")
-    Call<DataUser> getDataUser(@Query("ACTION") String action);
-//    @GET("MyServlet")
-//      Call<DataUser> getDataUser(@Query("ACTION") String action,
-//                               @Query("EMAIL") String email,
-//                               @Query("PASSWORD") String pass);
+    Call<DataUser> getDataLoginUser(@Query("ACTION") String action, @Query("username") String username, @Query("password") String password);
+
+    @GET("MyServlet")
+      Call<DataProduct> getDataProductList(@Query("ACTION") String action);
 
 //    @GET("MyServlet")
 //    Call<DataMovies> getDataMovies(@Query("ACTION") String action);

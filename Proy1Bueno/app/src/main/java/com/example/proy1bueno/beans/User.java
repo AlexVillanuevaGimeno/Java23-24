@@ -1,6 +1,7 @@
 package com.example.proy1bueno.beans;
 
 public class User {
+    private int idUser;
     private String username;
     private String password; // Puedes agregar otros campos segÃºn tus necesidades
 
@@ -10,6 +11,15 @@ public class User {
     }
     public User() {
     }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
     public String getUsername() {
         return username;
     }
