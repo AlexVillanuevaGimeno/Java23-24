@@ -1,5 +1,6 @@
 package com.example.proy1bueno.utils;
 
+import com.example.proy1bueno.addProduct.data.DataProductAdd;
 import com.example.proy1bueno.listProductsUser.data.DataProductLst;
 import com.example.proy1bueno.login_user.data.DataUser;
 
@@ -23,6 +24,19 @@ public interface ApiService {
 
     @GET("MyServlet")
     Call<DataProductLst> getDataProductList(@Query("ACTION") String action, @Query("idUser")int idUser);
+
+    @GET("MyServlet")
+    Call<DataProductAdd> getDataAddProduct( @Query("ACTION") String action,
+                                            @Query("idProducto") int idProducto,
+                                            @Query("nombreProducto") String nombreProducto,
+                                            @Query("precioProducto") Double precioProducto,
+                                            @Query("marcaProducto") String marcaProducto,
+                                            @Query("fechaSubidaProducto") String fechaSubidaProducto,
+                                            @Query("descripcionProducto") String descripcionProducto,
+                                            @Query("imagenProducto") String imagenProducto,
+                                            @Query("idUser") int idUser
+    );
+
 
 //    @GET("MyServlet")
 //    Call<DataMovies> getDataMovies(@Query("ACTION") String action);
