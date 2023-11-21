@@ -54,6 +54,7 @@ public class LoginUserModel implements ContractLoginUser.Model {
                     try {
 
                         onLoginUserListener.onFinished(usersList.get(0));
+                        Log.e("LOGIN CORRECRO ONRESPONSE","ESTOY LOGUEADO");
 
                     }catch(IndexOutOfBoundsException e){
                         Log.e("No Found User","no user exists");

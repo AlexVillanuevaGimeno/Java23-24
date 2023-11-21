@@ -62,7 +62,7 @@ public class LoginUser extends AppCompatActivity implements ContractLoginUser.Vi
             }else{
                 String datosUser = "";
                 datosUser += "{Username: " + userPreferences.getString("username", "YO") + "},";
-                datosUser += "Id: " + userPreferences.getInt("id",0) + "}";
+                datosUser += "idUser: " + userPreferences.getInt("idUser",0) + "}";
 //                        Toast.makeText(this, DataUser, Toast.LENGTH_SHORT).show();
                 Log.e("success", "LogCheck returned true");
                 Intent intent = new Intent(this, LstProducts.class);
@@ -77,7 +77,7 @@ public class LoginUser extends AppCompatActivity implements ContractLoginUser.Vi
         SharedPreferences.Editor editorPreferencias = userPreferences.edit();
         editorPreferencias.putBoolean("LogCheck", true);
         editorPreferencias.putString("username", user.getUsername());
-        editorPreferencias.putInt("id", user.getIdUser());
+        editorPreferencias.putInt("idUser", user.getIdUser());
         editorPreferencias.apply();
         Log.e("success", "editor añade user + id al preferences");
        Intent intent = new Intent(this, LstProducts.class);

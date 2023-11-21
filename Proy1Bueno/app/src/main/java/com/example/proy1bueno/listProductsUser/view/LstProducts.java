@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.proy1bueno.R;
+import com.example.proy1bueno.addProduct.view.AddProduct;
 import com.example.proy1bueno.beans.Product;
 import com.example.proy1bueno.listProductsUser.ContractLstProduct;
 import com.example.proy1bueno.listProductsUser.presenter.LstProductPresenter;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 
 public class LstProducts extends AppCompatActivity implements ContractLstProduct.View{
     Button btnLogout;
+    Button btnAddProduct;
     private LstProductPresenter presenter = new LstProductPresenter(this);
 
     private static LstProducts lstProducts = null;
@@ -47,13 +49,20 @@ public class LstProducts extends AppCompatActivity implements ContractLstProduct
         SharedPreferences UserPreferences = getSharedPreferences("com.MyApp.USER_CFG", Context.MODE_PRIVATE);
         Log.e("user_id","id user preferences = " + UserPreferences);
         Product product = new Product();
-        presenter.lstProduct(product);
+        presenter.lstProducts(product);
+        btnAddProduct = findViewById(R.id.btnAddProduct);
         btnLogout = findViewById(R.id.btnLogout);
+        //click en Add Products
+        btnAddProduct.setOnClickListener(view -> {
+            Intent intent = new Intent(this, AddProduct.class);
+            startActivity(intent);
+        });
+        //Click en Logout
         btnLogout.setOnClickListener(view -> {
             SharedPreferences.Editor editor = UserPreferences.edit();
             editor.remove("LogCheck");
             editor.remove("username");
-            editor.remove("id");
+            editor.remove("idUser");
             Log.e("Prefernces delete","borro credenciales" );
             editor.apply();
             Intent intent = new Intent(this, LoginUser.class);
@@ -67,10 +76,13 @@ public class LstProducts extends AppCompatActivity implements ContractLstProduct
     }
 
     @Override
-    public void successLstProduct(ArrayList<Product> lstProduct) {
+    public void successLstProduct(ArrayList<Product> lstProducts) {
+        LinearLayout columnaListado = findViewById(R.id.columnaListado);
         LinearLayout parentEl = null;
 
-        for (Product product: lstProduct) {
+        for (Product product: lstProducts) {
+            parentEl = columnaListado;
+            Log.e("SuccesList","ProductForEach" + product.toString());
             LinearLayout linearLayout = new LinearLayout(this);
             LinearLayout.LayoutParams parametrosLayout = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT, // Ancho ocupando el 100%
@@ -82,15 +94,14 @@ public class LstProducts extends AppCompatActivity implements ContractLstProduct
             linearLayout.setId(View.generateViewId());
             linearLayout.setGravity(Gravity.BOTTOM);
             linearLayout.setOrientation(LinearLayout.VERTICAL);
-            linearLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.my_primary));
+            linearLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.black));
             TextView textView = new TextView(this);
             textView.setId(View.generateViewId());
             textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dpToPx(40)));
             textView.setBackgroundColor(ContextCompat.getColor(this, R.color.black));
             textView.setGravity(Gravity.CENTER_VERTICAL);
             textView.setTextColor(ContextCompat.getColor(this, R.color.white));
-            textView.setText(product.getNombreProducto() + product.getMarcaProducto() + "\n"
-                                + product.getPrecioProducto());
+            textView.setText(product.getNombreProducto() + product.getMarcaProducto() + "\n" + product.getPrecioProducto());
             linearLayout.addView(textView);
             parentEl.addView(linearLayout);
         }

@@ -1,10 +1,10 @@
-package com.example.proy1bueno.listProductsUser.data;
+package com.example.proy1bueno.addProduct.data;
 
 import com.example.proy1bueno.beans.Product;
 
 import java.util.ArrayList;
 
-public class DataProduct {
+public class DataProductAdd {
     private String message;
     private ArrayList<Product> lstProducts;
 

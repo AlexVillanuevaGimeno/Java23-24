@@ -15,14 +15,16 @@ public class Product {
     public Product() {
     }
 
-    public Product(String nombreProducto, Double precioProducto, String marcaProducto, String fechaSubidaProducto,
-                   String descripcionProducto, String imagenProducto) {
+    public Product(int idProducto, String nombreProducto, Double precioProducto, String marcaProducto, String fechaSubidaProducto,
+                   String descripcionProducto, String imagenProducto, int idUser) {
+        this.idProducto = idProducto;
         this.nombreProducto = nombreProducto;
         this.precioProducto = precioProducto;
         this.marcaProducto = marcaProducto;
         this.fechaSubidaProducto = fechaSubidaProducto;
         this.descripcionProducto = descripcionProducto;
         this.imagenProducto = imagenProducto;
+        this.idUser = idUser;
     }
 
     public int getIdProducto() {

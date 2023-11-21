@@ -20,7 +20,7 @@ public class LstProductPresenter extends AppCompatActivity implements ContractLs
        model = new LstProductModel(this, (Context) this.view);
     }
     @Override
-    public void lstProduct(Product product) {
+    public void lstProducts(Product product) {
         model.lstAPI(product, this);
     }
 

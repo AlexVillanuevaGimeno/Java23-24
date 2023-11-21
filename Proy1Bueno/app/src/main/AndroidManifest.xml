@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Proy1Bueno"
         tools:targetApi="31">
         <activity
+            android:name=".addProduct.view.AddProduct"
+            android:exported="false" />
+        <activity
             android:name=".listProductsUser.view.LstProducts"
             android:exported="false" />
         <activity

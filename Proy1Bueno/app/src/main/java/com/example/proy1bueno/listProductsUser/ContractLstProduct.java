@@ -14,7 +14,7 @@ public interface ContractLstProduct {
     }
     public interface Presenter{
         // void login(String email, String pass);
-         void lstProduct(Product product);
+         void lstProducts(Product product);
         // void login(ViewUser viewUser);
         // VIEW-ORM
         // BEANS-ENTITIES

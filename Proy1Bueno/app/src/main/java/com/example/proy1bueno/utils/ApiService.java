@@ -1,6 +1,6 @@
 package com.example.proy1bueno.utils;
 
-import com.example.proy1bueno.listProductsUser.data.DataProduct;
+import com.example.proy1bueno.listProductsUser.data.DataProductLst;
 import com.example.proy1bueno.login_user.data.DataUser;
 
 import retrofit2.Call;
@@ -18,11 +18,11 @@ public interface ApiService {
     @GET("MyServlet")
     Call<DataUser> getDataLoginUser(@Query("ACTION") String action, @Query("username") String username, @Query("password") String password);
 
-    @GET("MyServlet")
-      Call<DataProduct> getDataProductList(@Query("ACTION") String action);
+//    @GET("MyServlet")
+//      Call<DataProduct> getDataProductList(@Query("ACTION") String action);
 
     @GET("MyServlet")
-    Call<DataProduct> getDataProductList(@Query("ACTION") String action, @Query("idUser")int idUser);
+    Call<DataProductLst> getDataProductList(@Query("ACTION") String action, @Query("idUser")int idUser);
 
 //    @GET("MyServlet")
 //    Call<DataMovies> getDataMovies(@Query("ACTION") String action);

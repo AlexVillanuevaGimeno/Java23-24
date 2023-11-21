@@ -7,15 +7,12 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.proy1bueno.beans.Product;
-import com.example.proy1bueno.beans.User;
 import com.example.proy1bueno.listProductsUser.ContractLstProduct;
-import com.example.proy1bueno.listProductsUser.data.DataProduct;
+import com.example.proy1bueno.listProductsUser.data.DataProductLst;
 import com.example.proy1bueno.listProductsUser.presenter.LstProductPresenter;
-import com.example.proy1bueno.login_user.data.DataUser;
 import com.example.proy1bueno.utils.ApiService;
 import com.example.proy1bueno.utils.RetrofitCliente;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -42,24 +39,24 @@ public class LstProductModel extends AppCompatActivity implements ContractLstPro
     public void lstAPI(Product product, OnLstProductListener onLstProductListener) {
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);
-        Log.e("Apiservice","Apiservice" + apiService);
+//        Log.e("Apiservice","Apiservice" + apiService);
         sharedPreferencesUserCFG = context.getSharedPreferences("com.MyApp.USER_CFG", Context.MODE_PRIVATE);
-        Call<DataProduct> call;
+        Call<DataProductLst> call;
 //        if (sharedPreferencesUserCFG.getInt("id",0) == 0){
 //            call = apiService.getDataProductList("PRODUCT.FILTER");
 //        }else{
 //            call = apiService.getDataProductList("PRODUCT.FILTER", sharedPreferencesUserCFG.getInt("id",0));
 //        }
 
-        call = apiService.getDataProductList("PRODUCT.LST");
-        Log.e("call","call" + call);
-        call.enqueue(new Callback<DataProduct>() {
-
+        call = apiService.getDataProductList("PRODUCT.LST",sharedPreferencesUserCFG.getInt("idUser",0));
+        Log.e("call","call" + call.toString());
+        call.enqueue(new Callback<DataProductLst>() {
             @Override
-            public void onResponse(Call<DataProduct> call, Response<DataProduct> response) {
+            public void onResponse(Call<DataProductLst> call, Response<DataProductLst> response) {
                 if (response.isSuccessful()) {
-                    DataProduct dataProduct = response.body();
-                    ArrayList<Product> lstProducts = dataProduct.getLstProducts();
+                    DataProductLst dataProductLst = response.body();
+                    ArrayList<Product> lstProducts = dataProductLst.getLstProducts();
+                    Log.e("onResponse LSTPRODUCTS","VOY A LISTAR PRODUCTOS");
                     onLstProductListener.onFinished(lstProducts);
 
 
@@ -67,9 +64,10 @@ public class LstProductModel extends AppCompatActivity implements ContractLstPro
             }
 
             @Override
-            public void onFailure(Call<DataProduct> call, Throwable t) {
-
+            public void onFailure(Call<DataProductLst> call, Throwable t) {
+                Log.e("onFailure LSTPRODUCTS", "FALLO AL LISTAR", t);
             }
+
         });
         }
 }
