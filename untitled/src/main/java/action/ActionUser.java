@@ -1,7 +1,7 @@
 package action;
 
 
-import beans.Usuario;
+import beans.User;
 import com.google.gson.Gson;
 import dao.DAOUser;
 
@@ -20,9 +20,10 @@ public class ActionUser {
         switch (method[1]){
             case "LOGIN":
                 answer = login(request, response);
+
                 break;
             default:
-                System.out.println("wtf why am i here");
+                System.out.println("DEFAULT ACTION");
                 break;
         }
 
@@ -32,16 +33,18 @@ public class ActionUser {
     }
 
     private String login(HttpServletRequest request, HttpServletResponse response) {
-        Usuario usuario = new Usuario();
-        usuario.setUsername(request.getParameter("username"));
-        usuario.setPassword(request.getParameter("password"));
-        ArrayList<Usuario> listUsuario = new DAOUser().findAll(usuario);
+        User user = new User();
+        user.setUsername(request.getParameter("username"));
+        user.setPassword(request.getParameter("password"));
+        System.out.println(request.getParameter("username"));
+        System.out.println(request.getParameter("password"));
+        ArrayList<User> listUser = new DAOUser().findAll(user);
         String jsonUsuario = "";
         Gson gson = new Gson();
         jsonUsuario += "{\"message\": \"Esto es un mensaje de ejemplo\"," +
                 "\"usersList\": [";
-        if (!listUsuario.isEmpty()){
-            jsonUsuario += gson.toJson(listUsuario.get(0));
+        if (!listUser.isEmpty()){
+            jsonUsuario += gson.toJson(listUser.get(0));
         }
         jsonUsuario += "]}";
 

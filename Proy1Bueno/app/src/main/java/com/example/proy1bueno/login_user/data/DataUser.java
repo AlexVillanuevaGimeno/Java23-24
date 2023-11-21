@@ -7,17 +7,17 @@ import java.util.ArrayList;
 public class DataUser {
 
     private String message;
-    private ArrayList<User> lstUsers;
+    private ArrayList<User> usersList;
 
 
     public String getMessage() {
         return message;
     }
     public ArrayList<User> getLstUsers() {
-        return lstUsers;
+        return usersList;
     }
-    public void setLstUsers(ArrayList<User> lstUsers) {
-        this.lstUsers = lstUsers;
+    public void setLstUsers(ArrayList<User> usersList) {
+        this.usersList = usersList;
     }
 
 }

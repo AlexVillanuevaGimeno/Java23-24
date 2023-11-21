@@ -21,6 +21,9 @@ public interface ApiService {
     @GET("MyServlet")
       Call<DataProduct> getDataProductList(@Query("ACTION") String action);
 
+    @GET("MyServlet")
+    Call<DataProduct> getDataProductList(@Query("ACTION") String action, @Query("idUser")int idUser);
+
 //    @GET("MyServlet")
 //    Call<DataMovies> getDataMovies(@Query("ACTION") String action);
 

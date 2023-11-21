@@ -1,5 +1,7 @@
 package com.example.proy1bueno.login_user.presenter;
 
+import android.util.Log;
+
 import com.example.proy1bueno.beans.User;
 import com.example.proy1bueno.login_user.ContractLoginUser;
 import com.example.proy1bueno.login_user.model.LoginUserModel;
@@ -19,6 +21,7 @@ public class LoginUserPresenter implements ContractLoginUser.Presenter, Contract
     @Override
     public void onFinished(User user) {
         view.successLogin(user);
+        Log.e("OnFinished","Succes?" + user.toString());
     }
 
     @Override

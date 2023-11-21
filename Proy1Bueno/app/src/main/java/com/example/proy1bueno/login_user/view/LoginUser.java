@@ -79,7 +79,7 @@ public class LoginUser extends AppCompatActivity implements ContractLoginUser.Vi
         editorPreferencias.putString("username", user.getUsername());
         editorPreferencias.putInt("id", user.getIdUser());
         editorPreferencias.apply();
-        Log.e("success", "editor finished");
+        Log.e("success", "editor añade user + id al preferences");
        Intent intent = new Intent(this, LstProducts.class);
                startActivity(intent);
     }

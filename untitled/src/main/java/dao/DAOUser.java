@@ -1,7 +1,7 @@
 package dao;
 
 import connection.MotorSQL;
-import beans.Usuario;
+import beans.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,29 +18,29 @@ public class DAOUser {
         motorSQL = MotorSQL.getMotorSQL();
     }
 
-    public ArrayList<Usuario> findAll(Usuario usuario){
+    public ArrayList<User> findAll(User user){
         String sql = "";
         sql = SQL_FINDALL;
-        sql += " AND username = '" + usuario.getUsername() + "' AND password = '" + usuario.getPassword()+'\'';
+        sql += " AND username = '" + user.getUsername() + "' AND password = '" + user.getPassword()+'\'';
         System.out.println(sql);
-        ArrayList<Usuario> listUsuario = new ArrayList<>();
+        ArrayList<User> listUser = new ArrayList<>();
         motorSQL.connect();
         ResultSet resultSet = motorSQL.executeQuery(sql);
         try {
             System.out.println("TRY findall usuario");
             while(resultSet.next()){
-                Usuario usuarioAux = new Usuario();
-                usuarioAux.setIdUsuario(resultSet.getInt(1));
+                User userAux = new User();
+                userAux.setIdUser(resultSet.getInt(1));
                 System.out.println("resultSet.getInt(1)");
                 System.out.println(resultSet.getInt(1));
-                usuarioAux.setUsername(resultSet.getString(2));
-                System.out.println("resultSet.getString(2)");
-                System.out.println(resultSet.getString(2));
-                usuarioAux.setPassword(resultSet.getString(3));
-                System.out.println("resultSet.getString(3)");
-                System.out.println(resultSet.getString(3));
-                listUsuario.add(usuarioAux);
-                System.out.println(usuarioAux.toString());
+                userAux.setUsername(resultSet.getString(7));
+                System.out.println("resultSet.getString(7)");
+                System.out.println(resultSet.getString(7));
+                userAux.setPassword(resultSet.getString(8));
+                System.out.println("resultSet.getString(8)");
+                System.out.println(resultSet.getString(8));
+                listUser.add(userAux);
+                System.out.println(userAux.toString());
 //                usuarioAux.setId(resultSet.getInt(1));
 //                usuarioAux.setUsername(resultSet.getString(2));
 //                usuarioAux.setPassword(resultSet.getString(3));
@@ -51,7 +51,7 @@ public class DAOUser {
             throw new RuntimeException(e);
         }
         motorSQL.close();
-        return listUsuario;
+        return listUser;
     }
 
 }

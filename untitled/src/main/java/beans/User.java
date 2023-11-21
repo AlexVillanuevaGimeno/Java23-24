@@ -1,33 +1,33 @@
 package beans;
 
-public class Usuario {
-    private int idUsuario;
+public class User {
+    private int idUser;
     private String username;
     private String password;
 
-    public Usuario() {
+    public User() {
     }
 
     @Override
     public String toString() {
-        return "Usuario{" +
-                "id='" + idUsuario + '\'' +
+        return "User{" +
+                "id='" + idUser + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
 
-    public Usuario(String username, String password) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public int getIdUser() {
+        return idUser;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public String getUsername() {

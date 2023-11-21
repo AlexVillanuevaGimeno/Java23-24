@@ -46,13 +46,14 @@ public class LoginUserModel implements ContractLoginUser.Model {
                 if (response.isSuccessful()) {
                     Log.e("Response", "Response: " + response);
                     DataUser dataUser = response.body();
-                    ArrayList<User> lstUsers = dataUser.getLstUsers();
-                    Log.e("LSTUSERS","LST USERS" +  lstUsers);
+                    ArrayList<User> usersList = dataUser.getLstUsers();
+                    Log.e("LSTUSERS","LST USERS" +  usersList);
                     Log.e("dataUser","dataUser" +  dataUser);
 
 
                     try {
-                        onLoginUserListener.onFinished(lstUsers.get(0));
+
+                        onLoginUserListener.onFinished(usersList.get(0));
 
                     }catch(IndexOutOfBoundsException e){
                         Log.e("No Found User","no user exists");

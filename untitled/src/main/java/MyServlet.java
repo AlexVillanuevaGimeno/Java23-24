@@ -20,21 +20,20 @@ public class MyServlet  extends HttpServlet {
         // Procesa alguna lógica aquí
         String message = "{message: 'Hola desde el Servlet'}";
         response.setContentType("application/json");
-
+        System.out.println("entro al servlet");
         String action = request.getParameter("ACTION");
         PrintWriter out = response.getWriter();
-        System.out.println("hola que tal");
+        String[] method = action.split("\\.");
+        System.out.println("Action: " + action);
         String answer = "";
-        switch(action){
-            case "PRODUCT.ADD":
-                System.out.println(request.getParameter("ACTION"));
-                System.out.println(request.getParameter("nombre"));
-                ActionProduct actionProduct = new ActionProduct();
-                answer = actionProduct.execute(request, response);
+        switch(method[0]){
+            case "PRODUCT":
+                    answer = new ActionProduct().execute(request, response);
                 break;
-
-            case "USER.LOGIN":
+            case "USER":
                 answer = new ActionUser().execute(request, response);
+                System.out.println("respuesta: " + answer);
+                System.out.println("USER LOGIN");
                 break;
 
             default:

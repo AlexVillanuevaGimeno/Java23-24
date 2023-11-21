@@ -25,6 +25,9 @@ public class ActionProduct {
                 System.out.println("Action: Añadir?");
                 answer = addProduct(request, response);
                 break;
+            case "LST":
+                System.out.println("Action: Listo Productos");
+
             default:
                 System.out.println("default Action");
                 break;
@@ -43,6 +46,24 @@ public class ActionProduct {
      *         this.imagenProducto = imagenProducto;
      *         this.idUsuario = idUsuario;
      *
+     *         /*String jsonResponseObject= "{\n" +
+     *                 "    \"message\": \"Este es un mensaje de ejemplo\",\n" +
+     *                 "    \"productList\": [\n" +
+     *                 "        {\n" +
+     *                 "            \"username\": \"username1\",\n" +
+     *                 "            \"token\": \"token1\"\n" +
+     *                 "        },\n" +
+     *                 "        {\n" +
+     *                 "            \"username\": \"username2\",\n" +
+     *                 "            \"token\": \"token2\"\n" +
+     *                 "        },\n" +
+     *                 "        {\n" +
+     *                 "            \"username\": \"username3\",\n" +
+     *                 "            \"token\": \"token3\"\n" +
+     *                 "        }\n" +
+     *                 "    ]\n" +
+     *                 "}";
+     *
      * @param request
      * @param response
      * @return
@@ -60,24 +81,6 @@ public class ActionProduct {
 
         Product product = new Product(idProducto,nombreProducto,precioProducto,marcaProducto,fechaSubidaProducto,descripcionProducto,imagenProducto,idUser);
         daoProduct.add(product);
-
-        /*String jsonResponseObject= "{\n" +
-                "    \"message\": \"Este es un mensaje de ejemplo\",\n" +
-                "    \"productList\": [\n" +
-                "        {\n" +
-                "            \"username\": \"username1\",\n" +
-                "            \"token\": \"token1\"\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"username\": \"username2\",\n" +
-                "            \"token\": \"token2\"\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"username\": \"username3\",\n" +
-                "            \"token\": \"token3\"\n" +
-                "        }\n" +
-                "    ]\n" +
-                "}";*/
         return "";
     }
 }
