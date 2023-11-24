@@ -1,12 +1,12 @@
-package com.example.proy1bueno.login_user.model;
+package com.example.proy1bueno.loginUser.model;
 
 
 import android.util.Log;
 
 import com.example.proy1bueno.beans.User;
-import com.example.proy1bueno.login_user.ContractLoginUser;
-import com.example.proy1bueno.login_user.data.DataUser;
-import com.example.proy1bueno.login_user.presenter.LoginUserPresenter;
+import com.example.proy1bueno.loginUser.ContractLoginUser;
+import com.example.proy1bueno.loginUser.data.DataUser;
+import com.example.proy1bueno.loginUser.presenter.LoginUserPresenter;
 import com.example.proy1bueno.utils.ApiService;
 import com.example.proy1bueno.utils.RetrofitCliente;
 

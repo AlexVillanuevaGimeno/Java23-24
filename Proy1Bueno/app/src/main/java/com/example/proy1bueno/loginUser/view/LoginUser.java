@@ -1,11 +1,10 @@
-package com.example.proy1bueno.login_user.view;
+package com.example.proy1bueno.loginUser.view;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -15,9 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.beans.User;
 import com.example.proy1bueno.listProductsUser.view.LstProducts;
-import com.example.proy1bueno.login_user.ContractLoginUser;
-import com.example.proy1bueno.login_user.data.DataUser;
-import com.example.proy1bueno.login_user.presenter.LoginUserPresenter;
+import com.example.proy1bueno.loginUser.ContractLoginUser;
+import com.example.proy1bueno.loginUser.presenter.LoginUserPresenter;
 
 public class LoginUser extends AppCompatActivity implements ContractLoginUser.View{
     SharedPreferences userPreferences;

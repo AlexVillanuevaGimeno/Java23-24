@@ -20,7 +20,7 @@ import com.example.proy1bueno.addProduct.view.AddProduct;
 import com.example.proy1bueno.beans.Product;
 import com.example.proy1bueno.listProductsUser.ContractLstProduct;
 import com.example.proy1bueno.listProductsUser.presenter.LstProductPresenter;
-import com.example.proy1bueno.login_user.view.LoginUser;
+import com.example.proy1bueno.loginUser.view.LoginUser;
 
 import java.util.ArrayList;
 

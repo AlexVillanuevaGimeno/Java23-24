@@ -2,7 +2,8 @@ package com.example.proy1bueno.utils;
 
 import com.example.proy1bueno.addProduct.data.DataProductAdd;
 import com.example.proy1bueno.listProductsUser.data.DataProductLst;
-import com.example.proy1bueno.login_user.data.DataUser;
+import com.example.proy1bueno.loginUser.data.DataUser;
+import com.example.proy1bueno.userFilter.data.DataUserFilter;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -36,6 +37,20 @@ public interface ApiService {
                                             @Query("imagenProducto") String imagenProducto,
                                             @Query("idUser") int idUser
     );
+
+    /*
+    le paso el cation (USER.FILTER) + el tipo de filtro que quiero
+    pt.3 filtro por mayor numero de ventas.
+    filter= userMostSells
+     */
+    @GET("MyServlet")
+    Call<DataUserFilter> getUserFilter(@Query("ACTION")String action, @Query("FILTER") String filter);
+
+//    @GET("MyServlet")
+//    Call<DataListUsers> getDataListUsers(@Query("ACTION") String action);
+//
+//    @GET("MyServlet")
+//    Call<DataListUsers> getDataListUsers(@Query("ACTION") String action, @Query("FILTER") String filter);
 
 
 //    @GET("MyServlet")

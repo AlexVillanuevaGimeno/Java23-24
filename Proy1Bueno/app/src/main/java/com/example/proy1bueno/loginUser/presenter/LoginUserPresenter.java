@@ -1,10 +1,10 @@
-package com.example.proy1bueno.login_user.presenter;
+package com.example.proy1bueno.loginUser.presenter;
 
 import android.util.Log;
 
 import com.example.proy1bueno.beans.User;
-import com.example.proy1bueno.login_user.ContractLoginUser;
-import com.example.proy1bueno.login_user.model.LoginUserModel;
+import com.example.proy1bueno.loginUser.ContractLoginUser;
+import com.example.proy1bueno.loginUser.model.LoginUserModel;
 
 public class LoginUserPresenter implements ContractLoginUser.Presenter, ContractLoginUser.Model.OnLoginUserListener {
     private ContractLoginUser.View view;

@@ -1,4 +1,4 @@
-package com.example.proy1bueno.login_user;
+package com.example.proy1bueno.loginUser;
 
 import com.example.proy1bueno.beans.User;
 
