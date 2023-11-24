@@ -46,7 +46,7 @@
             app:layout_constraintTop_toBottomOf="@id/textView3">
 
             <LinearLayout
-                android:id="@+id/columnaListado"
+                android:id="@+id/usersColumn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
