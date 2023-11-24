@@ -70,6 +70,7 @@ public class UserFilter extends AppCompatActivity implements ContractUserFilter.
 
         //NULL POINTER NOT CHECK
         for (User user : usersList) {
+            Log.e("ForEach Succes","Usuario = " + user);
             parentEl = usersColumn;
             Log.e("SuccesList", "ProductForEach" + user.toString());
             LinearLayout linearLayout = new LinearLayout(this);

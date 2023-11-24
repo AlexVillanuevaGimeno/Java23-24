@@ -30,7 +30,7 @@ public class UserFilterModel  implements ContractUserFilter.Model{
     @Override
     public void userFilterApi(User user, OnUserFilterListener onUserFilterListener) {
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").create(ApiService.class);
-
+//                  http:// 192.168.1.132:8088/untitled/
 
         Call<DataUserFilter> call;
         call = apiService.getUserFilter("USER.FILTER","userMostSells");
@@ -40,7 +40,9 @@ public class UserFilterModel  implements ContractUserFilter.Model{
                 if (response.isSuccessful()){
                     Log.e("On Response","isSuccesfull");
                     DataUserFilter dataUserFilter = response.body();
+                    Log.e("DATA FILTER","QUE OSTIAS HAY AQUI?" + dataUserFilter.getUsersList());
                     ArrayList<User> usersList = dataUserFilter.getUsersList();
+                    Log.e("Response Success","USERLIST " + usersList.toString());
                     onUserFilterListener.onFinished(usersList);
                 }else{
                     Log.e("Response Error", "ERROR HTTP" + response.code());
