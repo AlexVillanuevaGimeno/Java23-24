@@ -68,6 +68,7 @@ public class UserFilter extends AppCompatActivity implements ContractUserFilter.
         LinearLayout usersColumn = findViewById(R.id.usersColumn);
         LinearLayout parentEl = null;
 
+        //NULL POINTER NOT CHECK
         for (User user : usersList) {
             parentEl = usersColumn;
             Log.e("SuccesList", "ProductForEach" + user.toString());
