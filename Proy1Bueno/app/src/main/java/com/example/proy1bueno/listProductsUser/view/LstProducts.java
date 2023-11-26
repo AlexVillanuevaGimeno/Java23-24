@@ -17,7 +17,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.addProduct.view.AddProduct;
@@ -25,7 +24,7 @@ import com.example.proy1bueno.beans.Product;
 import com.example.proy1bueno.listProductsUser.ContractLstProduct;
 import com.example.proy1bueno.listProductsUser.presenter.LstProductPresenter;
 import com.example.proy1bueno.loginUser.view.LoginUser;
-import com.example.proy1bueno.rateProduct.view.RateProduct;
+import com.example.proy1bueno.rate.view.Rate;
 
 import java.util.ArrayList;
 
@@ -149,7 +148,8 @@ public class LstProducts extends AppCompatActivity implements ContractLstProduct
             btnRate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(LstProducts.this, RateProduct.class);
+                    Intent intent = new Intent(LstProducts.this, Rate.class);
+                    intent.putExtra("idProducto",product.getIdProducto());
                     startActivity(intent);
                 }
             });

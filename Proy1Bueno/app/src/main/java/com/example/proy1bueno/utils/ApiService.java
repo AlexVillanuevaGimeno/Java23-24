@@ -3,6 +3,7 @@ package com.example.proy1bueno.utils;
 import com.example.proy1bueno.addProduct.data.DataProductAdd;
 import com.example.proy1bueno.listProductsUser.data.DataProductLst;
 import com.example.proy1bueno.loginUser.data.DataUser;
+import com.example.proy1bueno.rate.data.DataRate;
 import com.example.proy1bueno.userFilter.data.DataUserFilter;
 
 import retrofit2.Call;
@@ -45,6 +46,15 @@ public interface ApiService {
      */
     @GET("MyServlet")
     Call<DataUserFilter> getUserFilter(@Query("ACTION")String action, @Query("FILTER") String filter);
+
+//    @GET("MyServlet")
+//    Call<DataRate> getAddValoracion(@Query("ACTION")String action);
+    @GET("MyServlet")
+    Call<DataRate> getAddValoracionComplete(@Query("ACTION")String action,
+                                            @Query("idUser")int idUser,
+                                            @Query("idProducto")int idProducto,
+                                            @Query("numEstrellas")float numEstrellas);
+
 
 //    @GET("MyServlet")
 //    Call<DataListUsers> getDataListUsers(@Query("ACTION") String action);
