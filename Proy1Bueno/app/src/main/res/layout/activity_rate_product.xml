@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".rate.view.Rate">
 
+    <ImageButton
+        android:id="@+id/btnHome"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/home_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTitle"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTitle"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editTextTitle"
+        app:layout_constraintVertical_bias="0.532" />
+
     <TextView
         android:id="@+id/editTextTitle"
         android:layout_width="192dp"

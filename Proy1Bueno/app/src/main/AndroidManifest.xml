@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Proy1Bueno"
         tools:targetApi="31">
         <activity
+            android:name=".lstBetterRates.view.LstBetterRates"
+            android:exported="false" />
+        <activity
             android:name=".rate.view.Rate"
             android:exported="false" />
         <activity

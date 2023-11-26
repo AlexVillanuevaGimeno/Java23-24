@@ -3,17 +3,21 @@ package com.example.proy1bueno.rate.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
+import com.example.proy1bueno.MainActivity;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.addProduct.presenter.AddProductPresenter;
 import com.example.proy1bueno.beans.Valoracion;
 import com.example.proy1bueno.listProductsUser.ContractLstProduct;
+import com.example.proy1bueno.listProductsUser.view.LstProducts;
 import com.example.proy1bueno.rate.ContractRate;
 import com.example.proy1bueno.rate.presenter.RatePresenter;
 
@@ -21,6 +25,7 @@ import java.util.ArrayList;
 
 public class Rate extends AppCompatActivity implements ContractRate.View {
     private RatingBar ratingBar;
+    private ImageButton btnHome;
     float numEstrellas;
     private int idProductRate;
     private int idUser;
@@ -51,6 +56,11 @@ public class Rate extends AppCompatActivity implements ContractRate.View {
 //            }
 //        });
 //        Log.e("Valoracion Campos","Campos valoracion: " + idUser + " " + idProductRate + " " + numEstrellas);
+        btnHome = findViewById(R.id.btnHome);
+        btnHome.setOnClickListener(view -> {
+            Intent intent = new Intent(this, LstProducts.class);
+            startActivity(intent);
+        });
 
         btnRate = findViewById(R.id.btnRate);
 

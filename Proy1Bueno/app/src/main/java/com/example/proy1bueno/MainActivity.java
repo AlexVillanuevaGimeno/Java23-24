@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.proy1bueno.loginUser.view.LoginUser;
+import com.example.proy1bueno.lstBetterRates.view.LstBetterRates;
 import com.example.proy1bueno.userFilter.view.UserFilter;
 
 
@@ -20,11 +21,19 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnIndex = findViewById(R.id.btnIndex);
         Button btnUserSells = findViewById(R.id.btnUserSells);
+        Button btnBetterRateProducts = findViewById(R.id.btnBetterRateProducts);
         btnIndex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Código que se ejecutará al hacer clic    en el botón
                 abrirLoginActivity();
+            }
+        });
+
+        btnBetterRateProducts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abrirValoraciones();
             }
         });
 
@@ -44,8 +53,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void abrirValoraciones(){
+        Intent intent = new Intent(this, LstBetterRates.class);
+        startActivity(intent);
+    }
+
     private void abrirUsuarioVentas(){
         Intent intent = new Intent(this, UserFilter.class);
         startActivity(intent);
     }
+
+
 }

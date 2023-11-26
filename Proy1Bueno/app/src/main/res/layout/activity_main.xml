@@ -62,6 +62,13 @@
                 tools:layout_editor_absoluteY="-15dp"
                 android:layout_marginTop="15dp"/>
 
+        <Button
+            android:id="@+id/btnBetterRateProducts"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Better Rate Products"
+            app:cornerRadius="32dp" />
+
 
         <Button
             android:id="@+id/btnIndex"

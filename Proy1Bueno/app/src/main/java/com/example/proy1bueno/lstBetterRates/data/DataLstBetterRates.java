@@ -1,11 +1,10 @@
-package com.example.proy1bueno.rate.data;
+package com.example.proy1bueno.lstBetterRates.data;
 
-import com.example.proy1bueno.beans.Product;
 import com.example.proy1bueno.beans.Valoracion;
 
 import java.util.ArrayList;
 
-public class DataRate {
+public class DataLstBetterRates {
     private String message;
     private ArrayList<Valoracion> lstValoraciones;
 

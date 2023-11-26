@@ -4,7 +4,10 @@ public class Valoracion {
     private int idValoracion;
     private int idUser;
     private int idProduct;
+    private String nombreProducto;
+
     private float numEstrellas;
+    private double promedioValoracion;
 
     private String resena;
 
@@ -15,6 +18,12 @@ public class Valoracion {
         this.idUser = idUser;
         this.idProduct = idProduct;
         this.numEstrellas = numEstrellas;
+    }
+
+    public Valoracion(int idProduct, String nombreProducto, double promedioValoracion) {
+        this.idProduct = idProduct;
+        this.nombreProducto = nombreProducto;
+        this.promedioValoracion = promedioValoracion;
     }
 
     public Valoracion(int idValoracion, int idUser, int idProduct, float numEstrellas, String resena) {
@@ -65,6 +74,21 @@ public class Valoracion {
         this.resena = resena;
     }
 
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
+
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
+
+    public double getPromedioValoracion() {
+        return promedioValoracion;
+    }
+
+    public void setPromedioValoracion(double promedioValoracion) {
+        this.promedioValoracion = promedioValoracion;
+    }
 
     @Override
     public String toString() {

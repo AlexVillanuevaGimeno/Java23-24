@@ -20,7 +20,7 @@ public class DataUserFilter {
         return usersList;
     }
 
-    public void setProductList(ArrayList<User> usersList) {
+    public void setUsersList(ArrayList<User> usersList) {
         this.usersList = usersList;
     }
 }
