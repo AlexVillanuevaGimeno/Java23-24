@@ -2,6 +2,8 @@ package com.example.proy1bueno.lstBetterRates.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +17,8 @@ import android.widget.TextView;
 
 import com.example.proy1bueno.MainActivity;
 import com.example.proy1bueno.R;
+import com.example.proy1bueno.adapters.ProductAdapter;
+import com.example.proy1bueno.adapters.ProductRatedAdapter;
 import com.example.proy1bueno.beans.User;
 import com.example.proy1bueno.beans.Valoracion;
 import com.example.proy1bueno.lstBetterRates.ContractLstBetterRates;
@@ -26,6 +30,8 @@ import java.util.ArrayList;
 
 public class LstBetterRates extends AppCompatActivity implements ContractLstBetterRates.View{
     private ImageButton btnHome;
+    RecyclerView recyclerView;
+
 
 
     private LstBetterRatesPresenter presenter = new LstBetterRatesPresenter(this);
@@ -62,35 +68,10 @@ public class LstBetterRates extends AppCompatActivity implements ContractLstBett
 
     @Override
     public void succesLstBetterRates(ArrayList<Valoracion> lstValoraciones) {
-        LinearLayout productsColumn = findViewById(R.id.productsColumn);
-        LinearLayout parentEl = null;
-
-        for (Valoracion valoracion : lstValoraciones) {
-            Log.e("ForEach Succes","Usuario = " + valoracion);
-            parentEl = productsColumn;
-            Log.e("SuccesList", "ProductForEach" + valoracion.toString());
-            LinearLayout linearLayout = new LinearLayout(this);
-            LinearLayout.LayoutParams parametrosLayout = new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT, // Ancho ocupando el 100%
-                    ViewGroup.LayoutParams.WRAP_CONTENT  // Altura ajustada a Wrap-content
-            );
-            parametrosLayout.setMargins(0,dpToPx(5),0,0);
-            linearLayout.setLayoutParams(parametrosLayout);
-            linearLayout.setId(View.generateViewId());
-            linearLayout.setGravity(Gravity.TOP);
-            linearLayout.setOrientation(LinearLayout.VERTICAL);
-            linearLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.my_primary));
-            TextView textView = new TextView(this);
-            textView.setId(View.generateViewId());
-            textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dpToPx(40)));
-            textView.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
-            textView.setGravity(Gravity.CENTER_VERTICAL);
-            textView.setTextColor(ContextCompat.getColor(this, R.color.black));
-            textView.setText(valoracion.getIdProduct() + " " + valoracion.getNombreProducto() + "\n" + "Puntuaje medio del producto" + valoracion.getPromedioValoracion());
-            linearLayout.addView(textView);
-            Log.e("listaPRODUCCTOS","LSIADO: " + valoracion.getIdProduct() + valoracion.getNombreProducto() + "\n" + valoracion.getPromedioValoracion());
-            parentEl.addView(linearLayout);
-        }
+        recyclerView = findViewById(R.id.productsColumn);
+        ProductRatedAdapter productRatedAdapter = new ProductRatedAdapter(lstValoraciones);
+        recyclerView.setAdapter(productRatedAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
     }
 
     @Override

@@ -26,7 +26,7 @@
             android:orientation="vertical"
             android:background="@drawable/bg_gradient_product">
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/nombreProductAdapter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
@@ -38,25 +38,25 @@
                 android:textStyle="bold"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="35dp"/>
+<!--            <TextView-->
+<!--                android:id="@+id/marcaProductAdapter"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="0"-->
+<!--                android:textSize="16sp"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:text="MARCA PRODUCTO"-->
+<!--                android:textAppearance="?android:textAppearanceMedium"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:layout_marginLeft="35dp"/>-->
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/valoracionMediaAdapter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:textSize="16sp"
                 android:gravity="center_vertical"
-                android:text="MARCA PRODUCTO"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_marginLeft="35dp"/>
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:gravity="center_vertical"
-                android:text="Descripcion del producto"
+                android:text="VALORACION MEDIA"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@color/black"
                 android:textStyle="bold"

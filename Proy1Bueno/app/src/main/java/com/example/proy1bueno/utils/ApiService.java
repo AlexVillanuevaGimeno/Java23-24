@@ -1,6 +1,7 @@
 package com.example.proy1bueno.utils;
 
 import com.example.proy1bueno.addProduct.data.DataProductAdd;
+import com.example.proy1bueno.categoriesFilter.data.DataCategoriesFilter;
 import com.example.proy1bueno.listProductsUser.data.DataProductLst;
 import com.example.proy1bueno.loginUser.data.DataUser;
 import com.example.proy1bueno.lstBetterRates.data.DataLstBetterRates;
@@ -59,6 +60,9 @@ public interface ApiService {
     @GET("MyServlet")
     Call<DataLstBetterRates>getLstBetterRates(@Query("ACTION")String action, @Query("FILTER")String filter);
 
+
+    @GET("MyServlet")
+    Call<DataCategoriesFilter>getCategories(@Query("ACTION")String action, @Query("nombreCategoria")String categoria);
 //    @GET("MyServlet")
 //    Call<DataListUsers> getDataListUsers(@Query("ACTION") String action);
 //

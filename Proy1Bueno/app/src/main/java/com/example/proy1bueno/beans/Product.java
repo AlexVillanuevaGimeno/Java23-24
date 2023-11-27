@@ -1,5 +1,7 @@
 package com.example.proy1bueno.beans;
 
+import java.util.ArrayList;
+
 public class Product {
     private int idProducto;
     private String nombreProducto;
@@ -11,6 +13,21 @@ public class Product {
     private String descripcionProducto;
     private String imagenProducto;
     private int idUser;
+    private String Category;
+    private ArrayList<String> lstCategories;
+    private void addCategory(String category){
+        if (lstCategories!=null){
+            lstCategories.add(category);
+        }
+    }
+
+    public ArrayList<String> getLstCategories() {
+        return lstCategories;
+    }
+
+    public void setLstCategories(ArrayList<String> lstCategories) {
+        this.lstCategories = lstCategories;
+    }
 
     public Product() {
     }
@@ -89,6 +106,14 @@ public class Product {
 
     public void setIdUser(int idUser) {
         this.idUser = idUser;
+    }
+
+    public String getCategory() {
+        return Category;
+    }
+
+    public void setCategory(String category) {
+        Category = category;
     }
 
     @Override

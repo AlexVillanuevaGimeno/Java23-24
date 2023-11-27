@@ -26,8 +26,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     Context context;
 
 
-    public ProductAdapter(ArrayList<Product> lstObra) {
-        this.lstProduct = lstObra;
+    public ProductAdapter(ArrayList<Product> lstProduct) {
+        this.lstProduct = lstProduct;
     }
 
     @NonNull
@@ -58,18 +58,20 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
 
+
+
     public class ProductViewHolder extends RecyclerView.ViewHolder{
         TextView nombreProduct;
         TextView marcaProduct;
         TextView descripcion;
-        ImageView imageView;
+//        ImageView imageView;
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
 
             nombreProduct = itemView.findViewById(R.id.textView);
             marcaProduct = itemView.findViewById(R.id.textView2);
             descripcion = itemView.findViewById(R.id.textView3);
-            imageView = itemView.findViewById(R.id.imageView);
+//            imageView = itemView.findViewById(R.id.imageView);
         }
     }
 }

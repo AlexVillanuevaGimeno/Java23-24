@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.beans.User;
+import com.example.proy1bueno.categoriesFilter.view.Categories;
 import com.example.proy1bueno.listProductsUser.view.LstProducts;
 import com.example.proy1bueno.loginUser.ContractLoginUser;
 import com.example.proy1bueno.loginUser.presenter.LoginUserPresenter;
@@ -78,7 +79,10 @@ public class LoginUser extends AppCompatActivity implements ContractLoginUser.Vi
         editorPreferencias.putInt("idUser", user.getIdUser());
         editorPreferencias.apply();
         Log.e("success", "editor añade user + id al preferences");
-       Intent intent = new Intent(this, LstProducts.class);
+
+        //DEBERIA ENTRAR AQUI PARA PODER FILTRAR
+//       Intent intent = new Intent(this, Categories.class);
+        Intent intent = new Intent(this, LstProducts.class);
                startActivity(intent);
     }
 

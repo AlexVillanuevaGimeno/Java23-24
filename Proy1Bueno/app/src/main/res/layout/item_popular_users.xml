@@ -4,65 +4,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="15dp"
     app:cardCornerRadius="30dp"
-    app:cardElevation="10dp"
-
-    >
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-<!--        <ImageView-->
-<!--            android:id="@+id/imageView"-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:background="@color/black"-->
-<!--            android:src="@drawable/ropa_bg" />-->
+    app:cardElevation="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:layout_gravity="center"
             android:background="@drawable/bg_gradient_product">
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/nombreUserAdapter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:gravity="center_vertical"
-                android:text="NOMBRE PRODUCTO"
+                android:text="NOMBRE DEL USUARIO"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="32sp"
                 android:textStyle="bold"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="35dp"/>
+<!--            <TextView-->
+<!--                android:id="@+id/textView2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="0"-->
+<!--                android:textSize="14sp"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:text="ID DEL USUARIO"-->
+<!--                android:textAppearance="?android:textAppearanceMedium"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:layout_marginLeft="35dp"/>-->
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/numeroVentasAdapter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:textSize="16sp"
                 android:gravity="center_vertical"
-                android:text="MARCA PRODUCTO"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_marginLeft="35dp"/>
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:gravity="center_vertical"
-                android:text="Descripcion del producto"
+                android:text=" NºDE VENTAS "
+                android:textSize="24sp"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="35dp"/>
         </LinearLayout>
-    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

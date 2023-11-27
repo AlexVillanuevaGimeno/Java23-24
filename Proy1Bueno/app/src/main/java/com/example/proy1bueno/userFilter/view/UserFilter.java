@@ -2,6 +2,8 @@ package com.example.proy1bueno.userFilter.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +18,8 @@ import android.widget.TextView;
 import com.example.proy1bueno.MainActivity;
 import com.example.proy1bueno.R;
 
+import com.example.proy1bueno.adapters.PopularUsersAdapter;
+import com.example.proy1bueno.adapters.ProductAdapter;
 import com.example.proy1bueno.beans.User;
 import com.example.proy1bueno.userFilter.ContractUserFilter;
 import com.example.proy1bueno.userFilter.presenter.UserFilterPresenter;
@@ -24,6 +28,7 @@ import java.util.ArrayList;
 
 public class UserFilter extends AppCompatActivity implements ContractUserFilter.View{
     private ImageButton btnHome;
+    RecyclerView recyclerView;
 
 
     private UserFilterPresenter presenter = new UserFilterPresenter(this);
@@ -65,36 +70,11 @@ public class UserFilter extends AppCompatActivity implements ContractUserFilter.
 
     @Override
     public void successUserFilter(ArrayList<User> usersList) {
-        LinearLayout usersColumn = findViewById(R.id.usersColumn);
-        LinearLayout parentEl = null;
+        recyclerView = findViewById(R.id.usersColumn);
+        PopularUsersAdapter adapterUsers = new PopularUsersAdapter(usersList);
+        recyclerView.setAdapter(adapterUsers);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        //NULL POINTER NOT CHECK
-        for (User user : usersList) {
-            Log.e("ForEach Succes","Usuario = " + user);
-            parentEl = usersColumn;
-            Log.e("SuccesList", "ProductForEach" + user.toString());
-            LinearLayout linearLayout = new LinearLayout(this);
-            LinearLayout.LayoutParams parametrosLayout = new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT, // Ancho ocupando el 100%
-                    ViewGroup.LayoutParams.WRAP_CONTENT  // Altura ajustada a Wrap-content
-            );
-            parametrosLayout.setMargins(0,dpToPx(5),0,0);
-            linearLayout.setLayoutParams(parametrosLayout);
-            linearLayout.setId(View.generateViewId());
-            linearLayout.setGravity(Gravity.TOP);
-            linearLayout.setOrientation(LinearLayout.VERTICAL);
-            linearLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.my_primary));
-            TextView textView = new TextView(this);
-            textView.setId(View.generateViewId());
-            textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dpToPx(40)));
-            textView.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
-            textView.setGravity(Gravity.CENTER_VERTICAL);
-            textView.setTextColor(ContextCompat.getColor(this, R.color.black));
-            textView.setText(user.getIdUser() + " " + user.getUsername() + "\n" + "Nº DE VENTAS DEL USUARIO: " + user.getVenta());
-            linearLayout.addView(textView);
-            Log.e("listaPRODUCCTOS","LSIADO: " + user.getIdUser() + user.getUsername() + "\n" + user.getVenta());
-            parentEl.addView(linearLayout);
-        }
     }
 
     @Override
