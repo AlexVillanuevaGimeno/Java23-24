@@ -43,9 +43,12 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lstProducts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/lstProducts"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cabecera">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -58,8 +61,8 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/item_popular_users"
-                app:layout_constraintVertical_bias="1.0">
+                app:layout_constraintVertical_bias="1.0"
+                tools:listitem="@layout/item_popular_users">
 
 
             </androidx.recyclerview.widget.RecyclerView>

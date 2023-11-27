@@ -59,10 +59,10 @@ public class UserFilter extends AppCompatActivity implements ContractUserFilter.
         presenter.userFilter(user);
     }
 
-    public int dpToPx(int dp) {
-        float density = getResources().getDisplayMetrics().density;
-        return Math.round((float) dp * density);
-    }
+//    public int dpToPx(int dp) {
+//        float density = getResources().getDisplayMetrics().density;
+//        return Math.round((float) dp * density);
+//    }
 
 
 

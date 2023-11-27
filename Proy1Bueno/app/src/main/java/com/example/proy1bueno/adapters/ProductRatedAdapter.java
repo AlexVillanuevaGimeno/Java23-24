@@ -27,7 +27,7 @@ public class ProductRatedAdapter extends RecyclerView.Adapter<ProductRatedAdapte
     @Override
     public ProductRatedAdapter.ProductRatedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product_rated,null,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product_rated,parent,false);
         return new ProductRatedAdapter.ProductRatedViewHolder(view);
     }
 
