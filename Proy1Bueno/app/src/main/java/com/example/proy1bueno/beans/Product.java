@@ -30,6 +30,7 @@ public class Product {
     }
 
     public Product() {
+        lstCategories=new ArrayList<>();
     }
 
     public Product(int idProducto, String nombreProducto, Double precioProducto, String marcaProducto, String fechaSubidaProducto,

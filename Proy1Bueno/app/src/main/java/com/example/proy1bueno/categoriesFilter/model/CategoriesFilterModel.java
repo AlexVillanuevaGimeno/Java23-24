@@ -32,7 +32,7 @@ public class CategoriesFilterModel implements ContractCategoriesFilter.Model{
     }
 
     @Override
-    public void categoriesFilterAPI(Product product, OnCategoriesFilterListener onCategoriesFilterListener) {
+    public void categoriesFilterAPI(Product product, ContractCategoriesFilter.Model.OnCategoriesFilterListener onCategoriesFilterListener) {
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").create(ApiService.class);
         sharedPreferencesUserCFG = context.getSharedPreferences("com.MyApp.USER_CFG", Context.MODE_PRIVATE);
         Call<DataCategoriesFilter> call;
