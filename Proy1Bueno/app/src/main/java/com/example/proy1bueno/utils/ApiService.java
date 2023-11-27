@@ -71,17 +71,5 @@ public interface ApiService {
 
 //    @GET("MyServlet")
 //    Call<DataMovies> getDataMovies2(@Query("ACTION") String action);
-
-        /*
-        @GET("MyServlet")
-          Call<MyData> getMyData(@Query("id") String id);
-
-        @GET("MyServlet/{id}")
-        Call<MyData> getMyDataURL(@Path("id") String id);*/
-
-        /*
-        @FormUrlEncoded
-        @POST("/login")
-        Call<ApiResponse> login(@Field("username") String username, @Field("password") String password);
-    */
+    
 }
