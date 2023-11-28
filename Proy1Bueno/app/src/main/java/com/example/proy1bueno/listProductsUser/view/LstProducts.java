@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.example.proy1bueno.MainActivity;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.adapters.ProductAdapter;
+import com.example.proy1bueno.adapters.ProductPerUserAdapter;
 import com.example.proy1bueno.addProduct.view.AddProduct;
 import com.example.proy1bueno.beans.Product;
 import com.example.proy1bueno.listProductsUser.ContractLstProduct;
@@ -89,8 +90,8 @@ public class LstProducts extends AppCompatActivity implements ContractLstProduct
     public void successLstProduct(ArrayList<Product> lstProducts) {
 
         recyclerView = findViewById(R.id.columnaListado);
-        ProductAdapter  adapterProduct = new ProductAdapter(lstProducts);
-        recyclerView.setAdapter(adapterProduct);
+        ProductPerUserAdapter productPerUserAdapter = new ProductPerUserAdapter(lstProducts);
+        recyclerView.setAdapter(productPerUserAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
     }

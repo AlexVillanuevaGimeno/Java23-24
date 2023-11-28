@@ -16,6 +16,7 @@ import com.example.proy1bueno.MainActivity;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.addProduct.presenter.AddProductPresenter;
 import com.example.proy1bueno.beans.Valoracion;
+import com.example.proy1bueno.categoriesFilter.view.Categories;
 import com.example.proy1bueno.listProductsUser.ContractLstProduct;
 import com.example.proy1bueno.listProductsUser.view.LstProducts;
 import com.example.proy1bueno.rate.ContractRate;
@@ -58,7 +59,7 @@ public class Rate extends AppCompatActivity implements ContractRate.View {
 //        Log.e("Valoracion Campos","Campos valoracion: " + idUser + " " + idProductRate + " " + numEstrellas);
         btnHome = findViewById(R.id.btnHome);
         btnHome.setOnClickListener(view -> {
-            Intent intent = new Intent(this, LstProducts.class);
+            Intent intent = new Intent(this, Categories.class);
             startActivity(intent);
         });
 
@@ -72,6 +73,8 @@ public class Rate extends AppCompatActivity implements ContractRate.View {
             valoracion.setNumEstrellas(numEstrellas);
             Toast.makeText(this, valoracion.toString(), Toast.LENGTH_SHORT).show();
             presenter.rate(valoracion);
+            Intent intent = new Intent(this, Categories.class);
+            startActivity(intent);
         });
 
 
