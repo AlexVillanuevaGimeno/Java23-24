@@ -43,6 +43,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.nombreProduct.setText(lstProduct.get(position).getNombreProducto());
         holder.marcaProduct.setText(lstProduct.get(position).getMarcaProducto());
         holder.descripcion.setText(lstProduct.get(position).getDescripcionProducto());
+//        holder.imageView.setImageResource();
         holder.itemView.setOnClickListener(v -> {
             Product product = lstProduct.get(position);
             int idProduct = product.getIdProducto();
@@ -68,9 +69,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            nombreProduct = itemView.findViewById(R.id.textView);
-            marcaProduct = itemView.findViewById(R.id.textView2);
-            descripcion = itemView.findViewById(R.id.textView3);
+            nombreProduct = itemView.findViewById(R.id.nombreAdapter);
+            marcaProduct = itemView.findViewById(R.id.marcaAdapter);
+            descripcion = itemView.findViewById(R.id.descripcionAdapter);
 //            imageView = itemView.findViewById(R.id.imageView);
         }
     }

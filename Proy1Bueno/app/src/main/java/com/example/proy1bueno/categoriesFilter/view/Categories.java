@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
 
+import com.example.proy1bueno.MainActivity;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.adapters.ProductAdapter;
 import com.example.proy1bueno.beans.Product;
@@ -24,6 +27,7 @@ public class Categories extends AppCompatActivity implements ContractCategoriesF
     Button btnMujer;
     Button btnCamisetas;
     Button btnPantalones;
+    ImageButton btnHome;
 
     //boton para limpriar los filtros a la vez
 //    Button btnClear;
@@ -66,6 +70,11 @@ public class Categories extends AppCompatActivity implements ContractCategoriesF
         btnMujer = findViewById(R.id.btnMujer);
         btnCamisetas = findViewById(R.id.btnCamisetas);
         btnPantalones = findViewById(R.id.btnPantalones);
+        btnHome = findViewById(R.id.btnHome);
+        btnHome.setOnClickListener(view -> {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        });
 
         //onClick compruebo si el filtro ya estaba añadido
         //en caso deque lo este al clicar otra vez lo elimino
