@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.proy1bueno.IndexActivity;
 import com.example.proy1bueno.MainActivity;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.adapters.ProductAdapter;
@@ -55,7 +56,7 @@ public class LstBetterRates extends AppCompatActivity implements ContractLstBett
         Valoracion valoracion = new Valoracion();
         btnHome = findViewById(R.id.btnHome);
         btnHome.setOnClickListener(view -> {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, IndexActivity.class);
             startActivity(intent);
         });
         presenter.lstBetterRates(valoracion);

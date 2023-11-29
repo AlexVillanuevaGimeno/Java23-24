@@ -11,6 +11,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.example.proy1bueno.IndexActivity;
 import com.example.proy1bueno.MainActivity;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.adapters.ProductAdapter;
@@ -72,7 +73,7 @@ public class Categories extends AppCompatActivity implements ContractCategoriesF
         btnPantalones = findViewById(R.id.btnPantalones);
         btnHome = findViewById(R.id.btnHome);
         btnHome.setOnClickListener(view -> {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, IndexActivity.class);
             startActivity(intent);
         });
 

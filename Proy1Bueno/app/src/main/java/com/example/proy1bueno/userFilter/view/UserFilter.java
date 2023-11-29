@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.proy1bueno.IndexActivity;
 import com.example.proy1bueno.MainActivity;
 import com.example.proy1bueno.R;
 
@@ -53,7 +54,7 @@ public class UserFilter extends AppCompatActivity implements ContractUserFilter.
         User user = new User();
         btnHome = findViewById(R.id.btnHome);
         btnHome.setOnClickListener(view -> {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, IndexActivity.class);
             startActivity(intent);
         });
         presenter.userFilter(user);

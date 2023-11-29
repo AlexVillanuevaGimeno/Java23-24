@@ -42,14 +42,14 @@ public class ProductFileModel extends AppCompatActivity implements ContractProdu
 //        Log.e("Apiservice","Apiservice" + apiService);
         sharedPreferencesUserCFG = context.getSharedPreferences("com.MyApp.USER_CFG", Context.MODE_PRIVATE);
         Call<DataProductFile> call;
-        call = apiService.getProductFile("PRODUCT.FICHA", product.getIdProducto());
+        call = apiService.getProductFile("PRODUCT.FILE", product.getIdProducto());
         call.enqueue(new Callback<DataProductFile>() {
             @Override
             public void onResponse(Call<DataProductFile> call, Response<DataProductFile> response) {
                 if (response.isSuccessful()){
                     DataProductFile dataProductFile = response.body();
                     ArrayList<Product> lstProducts = dataProductFile.getLstProducts();
-                    Log.e("onResponse LSTPRODUCTS","VOY A LISTAR PRODUCTOS");
+                    Log.e("RESPONSE SUCCESFULL","QUE PRODUCTO ENTRA?"+ lstProducts);
                     onProductFileListener.onFinished(lstProducts.get(0));
                 }else{
                     Log.e("Response Error", "HTTP state:38:" + response.code());

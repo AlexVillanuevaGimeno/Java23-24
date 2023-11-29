@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.beans.Product;
+import com.example.proy1bueno.productFile.view.ProductFile;
 import com.example.proy1bueno.rate.view.Rate;
 
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.itemView.setOnClickListener(v -> {
             Product product = lstProduct.get(position);
             int idProduct = product.getIdProducto();
-            Intent intent = new Intent(holder.itemView.getContext(), Rate.class);
+            Intent intent = new Intent(holder.itemView.getContext(), ProductFile.class);
             intent.putExtra("idProduct", idProduct);
             context.startActivity(intent);
         });

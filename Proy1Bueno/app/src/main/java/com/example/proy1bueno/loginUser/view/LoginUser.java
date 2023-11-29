@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.proy1bueno.IndexActivity;
+import com.example.proy1bueno.MainActivity;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.beans.User;
 import com.example.proy1bueno.categoriesFilter.view.Categories;
@@ -64,7 +66,7 @@ public class LoginUser extends AppCompatActivity implements ContractLoginUser.Vi
                 datosUser += "idUser: " + userPreferences.getInt("idUser",0) + "}";
 //                        Toast.makeText(this, DataUser, Toast.LENGTH_SHORT).show();
                 Log.e("success", "LogCheck returned true");
-                Intent intent = new Intent(this, LstProducts.class);
+                Intent intent = new Intent(this, IndexActivity.class);
                 startActivity(intent);
             }
         });
@@ -82,7 +84,7 @@ public class LoginUser extends AppCompatActivity implements ContractLoginUser.Vi
 
         //DEBERIA ENTRAR AQUI PARA PODER FILTRAR
 //       Intent intent = new Intent(this, Categories.class);
-        Intent intent = new Intent(this, LstProducts.class);
+        Intent intent = new Intent(this, IndexActivity.class);
                startActivity(intent);
     }
 

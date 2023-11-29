@@ -72,15 +72,15 @@
             android:id="@+id/btnProductsCategory"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Listado de productos"
+            android:text="Catalogo de Productos"
             app:cornerRadius="32dp" />
 
 
         <Button
-            android:id="@+id/btnIndex"
+            android:id="@+id/btnMisproductos"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Login"
+            android:text="Mis Productos"
             app:cornerRadius="32dp" />
 
 <!--        <TextView-->

@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.proy1bueno.IndexActivity;
 import com.example.proy1bueno.MainActivity;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.adapters.ProductAdapter;
@@ -76,7 +77,7 @@ public class LstProducts extends AppCompatActivity implements ContractLstProduct
             editor.remove("idUser");
             Log.e("Prefernces delete","borro credenciales" );
             editor.apply();
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, LoginUser.class);
             startActivity(intent);
         });
     }
