@@ -1,6 +1,7 @@
 package com.example.proy1bueno.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.beans.Product;
 import com.example.proy1bueno.beans.Valoracion;
+import com.example.proy1bueno.productFile.view.ProductFile;
 
 import java.util.ArrayList;
 
@@ -35,6 +37,13 @@ public class ProductRatedAdapter extends RecyclerView.Adapter<ProductRatedAdapte
     public void onBindViewHolder(@NonNull ProductRatedAdapter.ProductRatedViewHolder holder, int position) {
             holder.nombreProductAdapter.setText(lstValoracion.get(position).getNombreProducto());
             holder.valoracionMediaAdapter.setText("Puntuación media: " + lstValoracion.get(position).getPromedioValoracion());
+        holder.itemView.setOnClickListener(v -> {
+            Valoracion valoracion = lstValoracion.get(position);
+            int idProduct = valoracion.getIdProduct();
+            Intent intent = new Intent(holder.itemView.getContext(), ProductFile.class);
+            intent.putExtra("idProduct", idProduct);
+            context.startActivity(intent);
+        });
     }
 
 
