@@ -5,6 +5,7 @@ import com.example.proy1bueno.categoriesFilter.data.DataCategoriesFilter;
 import com.example.proy1bueno.listProductsUser.data.DataProductLst;
 import com.example.proy1bueno.loginUser.data.DataUser;
 import com.example.proy1bueno.lstBetterRates.data.DataLstBetterRates;
+import com.example.proy1bueno.productFile.data.DataProductFile;
 import com.example.proy1bueno.rate.data.DataRate;
 import com.example.proy1bueno.userFilter.data.DataUserFilter;
 
@@ -63,6 +64,9 @@ public interface ApiService {
 
     @GET("MyServlet")
     Call<DataCategoriesFilter>getCategories(@Query("ACTION")String action, @Query("nombreCategoria")String categoria);
+
+    @GET("MyServlet")
+    Call<DataProductFile> getProductFile(@Query("ACTION")String action, @Query("idProduct")int idProduct);
 //    @GET("MyServlet")
 //    Call<DataListUsers> getDataListUsers(@Query("ACTION") String action);
 //
