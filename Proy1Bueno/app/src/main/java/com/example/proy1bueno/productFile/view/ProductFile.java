@@ -12,9 +12,13 @@ import com.example.proy1bueno.IndexActivity;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.beans.Product;
 import com.example.proy1bueno.categoriesFilter.view.Categories;
+import com.example.proy1bueno.historicalPurchases.view.HistoricalPurchases;
+import com.example.proy1bueno.listProductsUser.view.LstProducts;
+import com.example.proy1bueno.lstBetterRates.view.LstBetterRates;
 import com.example.proy1bueno.productFile.ContractProductFile;
 import com.example.proy1bueno.productFile.presenter.ProductFilePresenter;
 import com.example.proy1bueno.rate.view.Rate;
+import com.example.proy1bueno.userFilter.view.UserFilter;
 import com.google.android.material.button.MaterialButton;
 
 public class ProductFile extends AppCompatActivity implements ContractProductFile.View {
@@ -34,8 +38,40 @@ public class ProductFile extends AppCompatActivity implements ContractProductFil
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_file);
+        ImageButton btnHomeFooter = findViewById(R.id.btnHomeFooter);
+        ImageButton btnBetterRates = findViewById(R.id.btnBetterRates);
+        ImageButton btnProfile = findViewById(R.id.btnProfile);
+        ImageButton btnMostSells = findViewById(R.id.btnMostSells);
+        ImageButton btnBuys = findViewById(R.id.btnBuys);
+
+        btnHomeFooter.setOnClickListener(v -> volverHome());
+        btnBetterRates.setOnClickListener(v -> abrirValoraciones());
+        btnProfile.setOnClickListener(v -> abrirMisProductos());
+        btnMostSells.setOnClickListener(v -> abrirUsuarioVentas());
+        btnBuys.setOnClickListener(v -> abrirHistoricoCompras());
         initComponents();
     }
+    private void volverHome(){
+        Intent intent = new Intent(this, IndexActivity.class);
+        startActivity(intent);
+    }
+    private void abrirValoraciones(){
+        Intent intent = new Intent(this, LstBetterRates.class);
+        startActivity(intent);
+    }
+    private void abrirUsuarioVentas(){
+        Intent intent = new Intent(this, UserFilter.class);
+        startActivity(intent);
+    }
+    private void abrirHistoricoCompras(){
+        Intent intent = new Intent(this, HistoricalPurchases.class);
+        startActivity(intent);
+    }
+    private void abrirMisProductos(){
+        Intent intent = new Intent(this, LstProducts.class);
+        startActivity(intent);
+    }
+
     public void initComponents(){
         nombreTextView = findViewById(R.id.nombreProductFile);
         precioTextView = findViewById(R.id.precioProductFile);
@@ -43,7 +79,7 @@ public class ProductFile extends AppCompatActivity implements ContractProductFil
         vendedorTextView = findViewById(R.id.vendedorProductFile);
         descripcionTextView = findViewById(R.id.descripcionProductFile);
         Product product = new Product();
-         idProduct = getIntent().getIntExtra("idProduct", 0);
+        idProduct = getIntent().getIntExtra("idProduct", 0);
         product.setIdProducto(idProduct);
         productFilePresenter.productFile(product);
         btnRateSmall = findViewById(R.id.btnRateSmall);

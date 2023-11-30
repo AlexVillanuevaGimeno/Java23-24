@@ -18,6 +18,10 @@ import com.example.proy1bueno.adapters.ProductAdapter;
 import com.example.proy1bueno.beans.Product;
 import com.example.proy1bueno.categoriesFilter.ContractCategoriesFilter;
 import com.example.proy1bueno.categoriesFilter.presenter.CategoriesFilterPresenter;
+import com.example.proy1bueno.historicalPurchases.view.HistoricalPurchases;
+import com.example.proy1bueno.listProductsUser.view.LstProducts;
+import com.example.proy1bueno.lstBetterRates.view.LstBetterRates;
+import com.example.proy1bueno.userFilter.view.UserFilter;
 
 import java.util.ArrayList;
 
@@ -28,7 +32,6 @@ public class Categories extends AppCompatActivity implements ContractCategoriesF
     Button btnMujer;
     Button btnCamisetas;
     Button btnPantalones;
-    ImageButton btnHome;
 
     //boton para limpriar los filtros a la vez
 //    Button btnClear;
@@ -59,6 +62,16 @@ public class Categories extends AppCompatActivity implements ContractCategoriesF
         setContentView(R.layout.activity_categories);
 //        categoriesActivity=this;
         sharedPreferences = getSharedPreferences("com.MyApp.PRODUCTS",MODE_PRIVATE);
+        ImageButton btnHomeFooter = findViewById(R.id.btnHomeFooter);
+        ImageButton btnBetterRates = findViewById(R.id.btnBetterRates);
+        ImageButton btnProfile = findViewById(R.id.btnProfile);
+        ImageButton btnMostSells = findViewById(R.id.btnMostSells);
+        ImageButton btnBuys = findViewById(R.id.btnBuys);
+        btnHomeFooter.setOnClickListener(v -> volverHome());
+        btnBetterRates.setOnClickListener(v -> abrirValoraciones());
+        btnProfile.setOnClickListener(v -> abrirMisProductos());
+        btnMostSells.setOnClickListener(v -> abrirUsuarioVentas());
+        btnBuys.setOnClickListener(v -> abrirHistoricoCompras());
         initComponents();
     }
 
@@ -71,11 +84,6 @@ public class Categories extends AppCompatActivity implements ContractCategoriesF
         btnMujer = findViewById(R.id.btnMujer);
         btnCamisetas = findViewById(R.id.btnCamisetas);
         btnPantalones = findViewById(R.id.btnPantalones);
-        btnHome = findViewById(R.id.btnHome);
-        btnHome.setOnClickListener(view -> {
-            Intent intent = new Intent(this, IndexActivity.class);
-            startActivity(intent);
-        });
 
         //onClick compruebo si el filtro ya estaba añadido
         //en caso deque lo este al clicar otra vez lo elimino
@@ -126,6 +134,28 @@ public class Categories extends AppCompatActivity implements ContractCategoriesF
         //vuelvo a llamar al presenter para que ejecute los filtros en cualquier caso
         //(sea quitar filtros o ponerlos)
         presenter.categoriesFilter(product);
+    }
+
+    private void volverHome(){
+        Intent intent = new Intent(this, IndexActivity.class);
+        startActivity(intent);
+    }
+    private void abrirValoraciones(){
+        Intent intent = new Intent(this, LstBetterRates.class);
+        startActivity(intent);
+    }
+
+    private void abrirUsuarioVentas(){
+        Intent intent = new Intent(this, UserFilter.class);
+        startActivity(intent);
+    }
+    private void abrirHistoricoCompras(){
+        Intent intent = new Intent(this, HistoricalPurchases.class);
+        startActivity(intent);
+    }
+    private void abrirMisProductos(){
+        Intent intent = new Intent(this, LstProducts.class);
+        startActivity(intent);
     }
 
     @Override

@@ -53,7 +53,10 @@ public class IndexActivity extends AppCompatActivity {
         Intent intent = new Intent(this, UserFilter.class);
         startActivity(intent);
     }
-
+    private void abrirHistoricoCompras(){
+        Intent intent = new Intent(this, HistoricalPurchases.class);
+        startActivity(intent);
+    }
     private void abrirProductsCategory(){
         Intent intent = new Intent(this, Categories.class);
         startActivity(intent);
@@ -62,10 +65,7 @@ public class IndexActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LstProducts.class);
         startActivity(intent);
     }
-    private void abrirHistoricoCompras(){
-        Intent intent = new Intent(this, HistoricalPurchases.class);
-        startActivity(intent);
-    }
+
 
     private void logOut(){
         SharedPreferences UserPreferences = getSharedPreferences("com.MyApp.USER_CFG", Context.MODE_PRIVATE);

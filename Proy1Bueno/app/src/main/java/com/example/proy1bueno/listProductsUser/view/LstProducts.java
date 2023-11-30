@@ -16,6 +16,7 @@ import android.view.Gravity;
 
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,10 +28,14 @@ import com.example.proy1bueno.adapters.ProductAdapter;
 import com.example.proy1bueno.adapters.ProductPerUserAdapter;
 import com.example.proy1bueno.addProduct.view.AddProduct;
 import com.example.proy1bueno.beans.Product;
+import com.example.proy1bueno.categoriesFilter.view.Categories;
+import com.example.proy1bueno.historicalPurchases.view.HistoricalPurchases;
 import com.example.proy1bueno.listProductsUser.ContractLstProduct;
 import com.example.proy1bueno.listProductsUser.presenter.LstProductPresenter;
 import com.example.proy1bueno.loginUser.view.LoginUser;
+import com.example.proy1bueno.lstBetterRates.view.LstBetterRates;
 import com.example.proy1bueno.rate.view.Rate;
+import com.example.proy1bueno.userFilter.view.UserFilter;
 
 import java.util.ArrayList;
 
@@ -54,7 +59,39 @@ public class LstProducts extends AppCompatActivity implements ContractLstProduct
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lst_products);
         lstProducts = this;
+        ImageButton btnHomeFooter = findViewById(R.id.btnHomeFooter);
+        ImageButton btnBetterRates = findViewById(R.id.btnBetterRates);
+        ImageButton btnProfile = findViewById(R.id.btnProfile);
+        ImageButton btnMostSells = findViewById(R.id.btnMostSells);
+        ImageButton btnBuys = findViewById(R.id.btnBuys);
+        btnHomeFooter.setOnClickListener(v -> volverHome());
+        btnBetterRates.setOnClickListener(v -> abrirValoraciones());
+        btnProfile.setOnClickListener(v -> abrirMisProductos());
+        btnMostSells.setOnClickListener(v -> abrirUsuarioVentas());
+        btnBuys.setOnClickListener(v -> abrirHistoricoCompras());
         initComponents();
+    }
+
+    private void volverHome(){
+        Intent intent = new Intent(this, IndexActivity.class);
+        startActivity(intent);
+    }
+    private void abrirValoraciones(){
+        Intent intent = new Intent(this, LstBetterRates.class);
+        startActivity(intent);
+    }
+
+    private void abrirUsuarioVentas(){
+        Intent intent = new Intent(this, UserFilter.class);
+        startActivity(intent);
+    }
+    private void abrirHistoricoCompras(){
+        Intent intent = new Intent(this, HistoricalPurchases.class);
+        startActivity(intent);
+    }
+    private void abrirMisProductos(){
+        Intent intent = new Intent(this, LstProducts.class);
+        startActivity(intent);
     }
 
     private void initComponents() {

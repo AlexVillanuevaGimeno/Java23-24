@@ -113,6 +113,7 @@
             tools:layout_editor_absoluteX="0dp">
 
             <ImageButton
+                android:id="@+id/btnHomeFooter"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_weight="1"
@@ -120,6 +121,7 @@
                 android:src="@drawable/home_icon"/>
 
             <ImageButton
+                android:id="@+id/btnBetterRates"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_weight="1"
@@ -127,18 +129,28 @@
                 android:src="@drawable/star_icon"/>
 
             <ImageButton
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:src="@drawable/cart_icon"/>
-
-            <ImageButton
+                android:id="@+id/btnProfile"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:src="@drawable/profile_icon"/>
+
+            <ImageButton
+                android:id="@+id/btnMostSells"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:src="@drawable/sells_icon"/>
+
+            <ImageButton
+                android:id="@+id/btnBuys"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:src="@drawable/cart_icon"/>
 
         </LinearLayout>
 
