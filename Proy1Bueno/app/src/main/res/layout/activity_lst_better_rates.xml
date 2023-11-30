@@ -47,25 +47,24 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/lstProducts"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:background="@drawable/bg_gradient"
+            app:layout_constraintBottom_toTopOf="@+id/footer"
             app:layout_constraintTop_toBottomOf="@+id/cabecera">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/productsColumn"
                 android:layout_width="match_parent"
-                android:layout_height="675dp"
+                android:layout_height="0dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
                 tools:listitem="@layout/item_product_rated">
 
 
@@ -73,8 +72,42 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="0dp">
 
-<!--        <LinearLayout-->
+            <ImageButton
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:src="@drawable/home_icon"/>
+
+            <ImageButton
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:src="@drawable/cart_icon"/>
+
+            <ImageButton
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:src="@drawable/profile_icon"/>
+
+        </LinearLayout>
+
+
+        <!--        <LinearLayout-->
 <!--            android:id="@+id/botones"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->

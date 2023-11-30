@@ -115,7 +115,7 @@
         android:layout_height="0dp"
         android:background="@drawable/bg_gradient"
         android:paddingTop="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/footer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cabeceraCategorias">
@@ -123,8 +123,8 @@
 
       <androidx.recyclerview.widget.RecyclerView
           android:id="@+id/columnaListado"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content"
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
           android:orientation="horizontal"
           android:paddingLeft="15dp"
           android:paddingRight="15dp"
@@ -139,6 +139,39 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+      <ImageButton
+          android:layout_width="35dp"
+          android:layout_height="35dp"
+          android:layout_weight="1"
+          android:background="@color/white"
+          android:src="@drawable/home_icon"/>
+
+      <ImageButton
+          android:layout_width="35dp"
+          android:layout_height="35dp"
+          android:layout_weight="1"
+          android:background="@color/white"
+          android:src="@drawable/cart_icon"/>
+
+      <ImageButton
+          android:layout_width="35dp"
+          android:layout_height="35dp"
+          android:layout_weight="1"
+          android:background="@color/white"
+          android:src="@drawable/profile_icon"/>
+
+    </LinearLayout>
 
 
 
