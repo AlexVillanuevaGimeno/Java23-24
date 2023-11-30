@@ -95,6 +95,13 @@
                 android:layout_height="35dp"
                 android:layout_weight="1"
                 android:background="@color/white"
+                android:src="@drawable/star_icon"/>
+
+            <ImageButton
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:background="@color/white"
                 android:src="@drawable/cart_icon"/>
 
             <ImageButton

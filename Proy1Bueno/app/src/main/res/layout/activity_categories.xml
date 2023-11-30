@@ -144,9 +144,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center_vertical"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
+        android:layout_gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="0dp">
 
@@ -156,6 +156,13 @@
           android:layout_weight="1"
           android:background="@color/white"
           android:src="@drawable/home_icon"/>
+
+      <ImageButton
+          android:layout_width="35dp"
+          android:layout_height="35dp"
+          android:layout_weight="1"
+          android:background="@color/white"
+          android:src="@drawable/star_icon"/>
 
       <ImageButton
           android:layout_width="35dp"
