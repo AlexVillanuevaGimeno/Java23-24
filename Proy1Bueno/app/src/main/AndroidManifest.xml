@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Proy1Bueno"
         tools:targetApi="31">
         <activity
+            android:name=".addCompra.view.AddCompra"
+            android:exported="false" />
+        <activity
             android:name=".historicalPurchases.view.HistoricalPurchases"
             android:exported="false" />
         <activity

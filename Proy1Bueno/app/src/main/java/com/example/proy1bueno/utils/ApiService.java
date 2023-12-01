@@ -1,5 +1,6 @@
 package com.example.proy1bueno.utils;
 
+import com.example.proy1bueno.addCompra.data.DataAddCompra;
 import com.example.proy1bueno.addProduct.data.DataProductAdd;
 import com.example.proy1bueno.categoriesFilter.data.DataCategoriesFilter;
 import com.example.proy1bueno.historicalPurchases.data.DataCompra;
@@ -72,6 +73,11 @@ public interface ApiService {
 
     @GET("MyServlet")
     Call<DataCompra>getHistoricalPurchases(@Query("ACTION")String action, @Query("idUser")int idUser);
+
+    @GET("MyServlet")
+    Call<DataAddCompra> getDataAddCompra(@Query("ACTION") String action,
+                                         @Query("idUser") int idUser,
+                                         @Query("idProduct") int idProduct);
 
 //    @GET("MyServlet")
 //    Call<DataListUsers> getDataListUsers(@Query("ACTION") String action);

@@ -8,6 +8,16 @@ public class Compra {
     private String comprador;
     private int idVendedor;
     private String vendedor;
+    private int idProductoComprado;
+
+    public int getIdProductoComprado() {
+        return idProductoComprado;
+    }
+
+    public void setIdProductoComprado(int idProductoComprado) {
+        this.idProductoComprado = idProductoComprado;
+    }
+
     private String productoComprado;
     private double precioProducto;
     private String marcaProducto;

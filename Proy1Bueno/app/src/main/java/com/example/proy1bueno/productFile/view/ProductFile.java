@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.proy1bueno.IndexActivity;
 import com.example.proy1bueno.R;
+import com.example.proy1bueno.addCompra.view.AddCompra;
 import com.example.proy1bueno.beans.Product;
 import com.example.proy1bueno.categoriesFilter.view.Categories;
 import com.example.proy1bueno.historicalPurchases.view.HistoricalPurchases;
@@ -28,8 +29,10 @@ public class ProductFile extends AppCompatActivity implements ContractProductFil
     private TextView vendedorTextView;
     private TextView descripcionTextView;
 
-    private MaterialButton btnRateSmall;
+//    private MaterialButton btnRateSmall;
     private MaterialButton btnRateHuge;
+    private MaterialButton btnBuy;
+
     private int idProduct;
 
     private ProductFilePresenter productFilePresenter = new ProductFilePresenter(this);
@@ -43,6 +46,7 @@ public class ProductFile extends AppCompatActivity implements ContractProductFil
         ImageButton btnProfile = findViewById(R.id.btnProfile);
         ImageButton btnMostSells = findViewById(R.id.btnMostSells);
         ImageButton btnBuys = findViewById(R.id.btnBuys);
+
 
         btnHomeFooter.setOnClickListener(v -> volverHome());
         btnBetterRates.setOnClickListener(v -> abrirValoraciones());
@@ -82,10 +86,13 @@ public class ProductFile extends AppCompatActivity implements ContractProductFil
         idProduct = getIntent().getIntExtra("idProduct", 0);
         product.setIdProducto(idProduct);
         productFilePresenter.productFile(product);
-        btnRateSmall = findViewById(R.id.btnRateSmall);
+//        btnRateSmall = findViewById(R.id.btnRateSmall);
         btnRateHuge = findViewById(R.id.btnRateHuge);
-        btnRateSmall.setOnClickListener(v -> abrirRate());
+//        btnRateSmall.setOnClickListener(v -> abrirRate());
         btnRateHuge.setOnClickListener(v -> abrirRate());
+        btnBuy = findViewById(R.id.btnBuy);
+        btnBuy.setOnClickListener(v -> abrirCompra());
+
     }
 
     @Override
@@ -115,6 +122,12 @@ public class ProductFile extends AppCompatActivity implements ContractProductFil
 
     public void abrirRate(){
         Intent intent = new Intent(this, Rate.class);
+        intent.putExtra("idProduct", idProduct);
+        startActivity(intent);
+    }
+
+    public void abrirCompra(){
+        Intent intent = new Intent(this, AddCompra.class);
         intent.putExtra("idProduct", idProduct);
         startActivity(intent);
     }
