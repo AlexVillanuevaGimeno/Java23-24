@@ -1,10 +1,17 @@
 package com.example.proy1bueno.addCompra.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -55,8 +62,45 @@ public class AddCompra extends AppCompatActivity implements ContractAddCompra.Vi
             presenter.addCompra(compra);
             Toast.makeText(this,"COMPRA CONFIRMADA", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, Categories.class);
+            makeNotification();
             startActivity(intent);
         });
+    }
+
+
+    public void makeNotification(){
+        String chanelId="CHANNEL_ID_NOTIFICATION";
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(getApplicationContext(),chanelId);
+        builder.setSmallIcon(R.drawable.notification_icon)
+                .setContentTitle("Compra Comfirmada")
+                .setContentText("Tu compra a sido confirmada y el paquete se enviara pronto")
+                .setAutoCancel(true)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        Intent intent = new Intent(getApplicationContext(), Categories.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("IDK","IDKX2");
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(),
+                0,intent, PendingIntent.FLAG_MUTABLE);
+        builder.setContentIntent(pendingIntent);
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (android.os.Build.VERSION.SDK_INT>= Build.VERSION_CODES.O){
+            NotificationChannel notificationChannel =
+                    notificationManager.getNotificationChannel(chanelId);
+            if (notificationChannel == null){
+                int importance = NotificationManager.IMPORTANCE_HIGH;
+                notificationChannel = new NotificationChannel(chanelId,
+                        "description", importance);
+                notificationChannel.setLightColor(Color.GREEN);
+                notificationChannel.enableVibration(true);
+                notificationManager.createNotificationChannel(notificationChannel);
+            }
+        }
+        notificationManager.notify(0,builder.build());
     }
 
     @Override
