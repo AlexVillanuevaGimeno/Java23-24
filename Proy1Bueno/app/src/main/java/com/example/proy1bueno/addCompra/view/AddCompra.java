@@ -63,6 +63,7 @@ public class AddCompra extends AppCompatActivity implements ContractAddCompra.Vi
             Toast.makeText(this,"COMPRA CONFIRMADA", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, Categories.class);
             makeNotification();
+            makeEmail();
             startActivity(intent);
         });
     }
@@ -103,6 +104,20 @@ public class AddCompra extends AppCompatActivity implements ContractAddCompra.Vi
         notificationManager.notify(0,builder.build());
     }
 
+    public void makeEmail(){
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"a26954@svalero.com"});
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Confirmación de compra");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "¡Gracias por tu compra!");
+
+        // Puedes agregar archivos adjuntos si es necesario
+        // Uri uri = Uri.fromFile(new File("ruta_del_archivo"));
+        // emailIntent.putExtra(Intent.EXTRA_STREAM, uri);
+
+        startActivity(Intent.createChooser(emailIntent, "Enviar correo electrónico"));
+
+    }
     @Override
     public void successAddCompra(Compra compra) {
 
