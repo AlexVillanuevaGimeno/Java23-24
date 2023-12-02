@@ -51,6 +51,7 @@ public class ProductFileModel extends AppCompatActivity implements ContractProdu
                     ArrayList<Product> lstProducts = dataProductFile.getLstProducts();
                     Log.e("RESPONSE SUCCESFULL","QUE PRODUCTO ENTRA?"+ lstProducts);
                     onProductFileListener.onFinished(lstProducts.get(0));
+                    Log.e("entarda datos productfile","que llevas" + lstProducts.get(0).toString());
                 }else{
                     Log.e("Response Error", "HTTP state:38:" + response.code());
                     try{

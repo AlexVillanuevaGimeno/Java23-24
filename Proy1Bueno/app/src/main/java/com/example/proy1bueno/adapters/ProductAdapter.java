@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.beans.Product;
 import com.example.proy1bueno.productFile.view.ProductFile;
@@ -25,6 +26,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     ArrayList<Product> lstProduct;
     Context context;
+
 
 
     public ProductAdapter(ArrayList<Product> lstProduct) {
@@ -46,10 +48,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     @Override
     public void onBindViewHolder(@NonNull ProductAdapter.ProductViewHolder holder, int position) {
+
         holder.nombreProduct.setText(lstProduct.get(position).getNombreProducto());
         holder.marcaProduct.setText(lstProduct.get(position).getMarcaProducto());
         holder.descripcion.setText(lstProduct.get(position).getDescripcionProducto());
-//        holder.imageView.setImageResource();
+        String imageUrl = "http://192.168.1.132:8088/untitled/img/"+lstProduct.get(position).getImagenProducto();
+        Glide.with(context).load(imageUrl).into(holder.imageView);
+
         holder.itemView.setOnClickListener(v -> {
             Product product = lstProduct.get(position);
             int idProduct = product.getIdProducto();
@@ -71,14 +76,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         TextView nombreProduct;
         TextView marcaProduct;
         TextView descripcion;
-//        ImageView imageView;
+        ImageView imageView;
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
 
             nombreProduct = itemView.findViewById(R.id.nombreAdapter);
             marcaProduct = itemView.findViewById(R.id.marcaAdapter);
             descripcion = itemView.findViewById(R.id.descripcionAdapter);
-//            imageView = itemView.findViewById(R.id.imageView);
+            imageView = itemView.findViewById(R.id.imageView);
         }
     }
 }

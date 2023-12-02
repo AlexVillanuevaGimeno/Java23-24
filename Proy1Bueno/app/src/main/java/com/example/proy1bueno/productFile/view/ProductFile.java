@@ -1,13 +1,21 @@
 package com.example.proy1bueno.productFile.view;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.example.proy1bueno.IndexActivity;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.addCompra.view.AddCompra;
@@ -29,7 +37,13 @@ public class ProductFile extends AppCompatActivity implements ContractProductFil
     private TextView vendedorTextView;
     private TextView descripcionTextView;
 
-//    private MaterialButton btnRateSmall;
+
+
+
+
+
+
+    //    private MaterialButton btnRateSmall;
     private MaterialButton btnRateHuge;
     private MaterialButton btnBuy;
 
@@ -46,6 +60,7 @@ public class ProductFile extends AppCompatActivity implements ContractProductFil
         ImageButton btnProfile = findViewById(R.id.btnProfile);
         ImageButton btnMostSells = findViewById(R.id.btnMostSells);
         ImageButton btnBuys = findViewById(R.id.btnBuys);
+
 
 
         btnHomeFooter.setOnClickListener(v -> volverHome());
@@ -117,15 +132,24 @@ public class ProductFile extends AppCompatActivity implements ContractProductFil
             marcaTextView.setText(product.getMarcaProducto());
             vendedorTextView.setText(product.getVendedor());
             descripcionTextView.setText(product.getDescripcionProducto());
+            ConstraintLayout constraintLayout = findViewById(R.id.imgProductFile);
+            String imageUrl = "http://192.168.1.132:8088/untitled/img/"+product.getImagenProducto();
+            Glide.with(this)
+                    .load(imageUrl)
+                    .into(new SimpleTarget<Drawable>() {
+                        @Override
+                        public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                            constraintLayout.setBackground(resource);
+                        }
+                    });
+
         }
     }
-
     public void abrirRate(){
         Intent intent = new Intent(this, Rate.class);
         intent.putExtra("idProduct", idProduct);
         startActivity(intent);
     }
-
     public void abrirCompra(){
         Intent intent = new Intent(this, AddCompra.class);
         intent.putExtra("idProduct", idProduct);

@@ -7,10 +7,9 @@
     tools:context=".productFile.view.ProductFile">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/imgProductFile"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:background="@drawable/ropa2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -43,7 +42,7 @@
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/imgProductFile" />
 
     <TextView
         android:id="@+id/precioProductFile"
