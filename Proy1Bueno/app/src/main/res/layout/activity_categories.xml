@@ -89,25 +89,31 @@
               android:textSize="14dp"
               android:text="Pantalon"/>
         </LinearLayout>
-
-
       </HorizontalScrollView>
-
-
-
     </LinearLayout>
+
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayoutProducts"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/bg_gradient"
-        android:paddingTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/footer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cabeceraCategorias">
+
+      <androidx.appcompat.widget.SearchView
+          android:id="@+id/searchView"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_margin="8dp"
+          android:background="@drawable/search_view_bg"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:queryHint="Search Here..."
+          app:iconifiedByDefault="false"/>
 
 
       <androidx.recyclerview.widget.RecyclerView
@@ -120,7 +126,7 @@
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintHorizontal_bias="0.0"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/searchView"
           tools:listitem="@layout/item_product">
 
 

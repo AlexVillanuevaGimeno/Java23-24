@@ -31,6 +31,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         this.lstProduct = lstProduct;
     }
 
+    public void setRecyclerLstProductsFiltered(ArrayList<Product>RecyclerLstProductsFiltered){
+        this.lstProduct =RecyclerLstProductsFiltered;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public ProductAdapter.ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

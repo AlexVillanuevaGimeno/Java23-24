@@ -1,6 +1,7 @@
 package com.example.proy1bueno.categoriesFilter.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.proy1bueno.IndexActivity;
 import com.example.proy1bueno.MainActivity;
@@ -32,6 +34,8 @@ public class Categories extends AppCompatActivity implements ContractCategoriesF
     Button btnMujer;
     Button btnCamisetas;
     Button btnPantalones;
+    private SearchView searchView;
+    ProductAdapter adapterProduct;
 
     //boton para limpriar los filtros a la vez
 //    Button btnClear;
@@ -62,6 +66,20 @@ public class Categories extends AppCompatActivity implements ContractCategoriesF
         setContentView(R.layout.activity_categories);
 //        categoriesActivity=this;
         sharedPreferences = getSharedPreferences("com.MyApp.PRODUCTS",MODE_PRIVATE);
+        searchView = findViewById(R.id.searchView);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
         ImageButton btnHomeFooter = findViewById(R.id.btnHomeFooter);
         ImageButton btnBetterRates = findViewById(R.id.btnBetterRates);
         ImageButton btnProfile = findViewById(R.id.btnProfile);
@@ -73,6 +91,20 @@ public class Categories extends AppCompatActivity implements ContractCategoriesF
         btnMostSells.setOnClickListener(v -> abrirUsuarioVentas());
         btnBuys.setOnClickListener(v -> abrirHistoricoCompras());
         initComponents();
+    }
+
+    private void filterList(String text) {
+        ArrayList<Product>RecyclerLstProductsFiltered = new ArrayList<>();
+        for (Product product: lstProducts) {
+            if(product.getNombreProducto().toLowerCase().contains(text.toLowerCase())){
+                RecyclerLstProductsFiltered.add(product);
+            }
+        }
+    if (RecyclerLstProductsFiltered.isEmpty()){
+        Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+    }else{
+        adapterProduct.setRecyclerLstProductsFiltered(RecyclerLstProductsFiltered);
+        }
     }
 
     private void initComponents(){
@@ -144,7 +176,6 @@ public class Categories extends AppCompatActivity implements ContractCategoriesF
         Intent intent = new Intent(this, LstBetterRates.class);
         startActivity(intent);
     }
-
     private void abrirUsuarioVentas(){
         Intent intent = new Intent(this, UserFilter.class);
         startActivity(intent);
@@ -164,7 +195,7 @@ public class Categories extends AppCompatActivity implements ContractCategoriesF
         Log.e("SUCCES CATEGORIES FILTER","HE LLEGADO AL SUCCES DEL FILTRO CON ESTOS DATOS= " +
                 lstProducts + "\n Longuitud de la cadena" + lstProducts.size());
         recyclerView = findViewById(R.id.columnaListado);
-        ProductAdapter adapterProduct = new ProductAdapter(lstProducts);
+        adapterProduct = new ProductAdapter(lstProducts);
         recyclerView.setAdapter(adapterProduct);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
     }
