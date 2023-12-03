@@ -11,17 +11,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
 
-import com.example.proy1bueno.IndexActivity;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.adapters.CompraAdapter;
-import com.example.proy1bueno.adapters.ProductPerUserAdapter;
 import com.example.proy1bueno.beans.Compra;
-import com.example.proy1bueno.beans.Product;
 import com.example.proy1bueno.categoriesFilter.view.Categories;
 import com.example.proy1bueno.historicalPurchases.ContractHistoricalPurchases;
 import com.example.proy1bueno.historicalPurchases.presenter.HistoricalPurchasesPresenter;
-import com.example.proy1bueno.listProductsUser.ContractLstProduct;
-import com.example.proy1bueno.listProductsUser.presenter.LstProductPresenter;
 import com.example.proy1bueno.listProductsUser.view.LstProducts;
 import com.example.proy1bueno.lstBetterRates.view.LstBetterRates;
 import com.example.proy1bueno.userFilter.view.UserFilter;
@@ -58,7 +53,7 @@ public class HistoricalPurchases extends AppCompatActivity implements ContractHi
         initComponents();
     }
     private void volverHome(){
-        Intent intent = new Intent(this, IndexActivity.class);
+        Intent intent = new Intent(this, Categories.class);
         startActivity(intent);
     }
     private void abrirValoraciones(){

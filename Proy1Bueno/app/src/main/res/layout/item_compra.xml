@@ -56,16 +56,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="35dp">
                 <TextView
-                    android:id="@+id/vendedorAdapterCompra"
+                    android:id="@+id/fechaAdapterCompra"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    android:gravity="center_vertical"
-                    android:text="Vendedor"
                     android:textSize="16sp"
+                    android:gravity="center_vertical"
+                    android:text="FECHA"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
@@ -76,27 +76,12 @@
                     android:layout_weight="0"
                     android:gravity="center_vertical"
                     android:text="PRECIO"
-                    android:textSize="24sp"
+                    android:textSize="16sp"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:layout_marginLeft="100dp"/>
+                    android:layout_marginLeft="70dp"/>
             </LinearLayout>
-
-
-            <TextView
-                android:id="@+id/fechaAdapterCompra"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:textSize="16sp"
-                android:gravity="center_vertical"
-                android:text="FECHA"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="35dp"/>
         </LinearLayout>
     </LinearLayout>
 

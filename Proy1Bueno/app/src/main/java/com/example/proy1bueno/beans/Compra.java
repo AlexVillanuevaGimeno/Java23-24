@@ -22,6 +22,16 @@ public class Compra {
     private double precioProducto;
     private String marcaProducto;
 
+    private String imagenProducto;
+
+    public String getImagenProducto() {
+        return imagenProducto;
+    }
+
+    public void setImagenProducto(String imagenProducto) {
+        this.imagenProducto = imagenProducto;
+    }
+
     public Compra() {
     }
 

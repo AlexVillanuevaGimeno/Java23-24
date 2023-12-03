@@ -1,26 +1,16 @@
 package com.example.proy1bueno.userFilter.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import com.example.proy1bueno.IndexActivity;
-import com.example.proy1bueno.MainActivity;
 import com.example.proy1bueno.R;
 
 import com.example.proy1bueno.adapters.PopularUsersAdapter;
-import com.example.proy1bueno.adapters.ProductAdapter;
 import com.example.proy1bueno.beans.User;
 import com.example.proy1bueno.categoriesFilter.view.Categories;
 import com.example.proy1bueno.historicalPurchases.view.HistoricalPurchases;
@@ -64,7 +54,7 @@ public class UserFilter extends AppCompatActivity implements ContractUserFilter.
 
     }
     private void volverHome(){
-        Intent intent = new Intent(this, IndexActivity.class);
+        Intent intent = new Intent(this, Categories.class);
         startActivity(intent);
     }
     private void abrirValoraciones(){

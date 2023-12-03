@@ -10,13 +10,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.example.proy1bueno.IndexActivity;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.addCompra.view.AddCompra;
 import com.example.proy1bueno.beans.Product;
@@ -71,7 +69,7 @@ public class ProductFile extends AppCompatActivity implements ContractProductFil
         initComponents();
     }
     private void volverHome(){
-        Intent intent = new Intent(this, IndexActivity.class);
+        Intent intent = new Intent(this, Categories.class);
         startActivity(intent);
     }
     private void abrirValoraciones(){

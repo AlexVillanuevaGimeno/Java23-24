@@ -13,8 +13,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.proy1bueno.IndexActivity;
-import com.example.proy1bueno.MainActivity;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.adapters.ProductAdapter;
 import com.example.proy1bueno.beans.Product;
@@ -169,7 +167,7 @@ public class Categories extends AppCompatActivity implements ContractCategoriesF
     }
 
     private void volverHome(){
-        Intent intent = new Intent(this, IndexActivity.class);
+        Intent intent = new Intent(this, Categories.class);
         startActivity(intent);
     }
     private void abrirValoraciones(){

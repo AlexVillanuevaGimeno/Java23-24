@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.proy1bueno.R;
 import com.example.proy1bueno.beans.Compra;
 
@@ -36,8 +37,10 @@ public class CompraAdapter extends RecyclerView.Adapter<CompraAdapter.CompraAdap
         holder.nombreProducto.setText(lstCompras.get(position).getProductoComprado());
         holder.marcaProducto.setText(lstCompras.get(position).getMarcaProducto());
         holder.precioProducto.setText(lstCompras.get(position).getPrecioProducto()+"€");
-        holder.vendedor.setText(lstCompras.get(position).getVendedor());
+//        holder.vendedor.setText(lstCompras.get(position).getVendedor());
         holder.fecha.setText(lstCompras.get(position).getFechaCompra());
+        String imageUrl = "http://192.168.1.132:8088/untitled/img/"+lstCompras.get(position).getImagenProducto();
+        Glide.with(context).load(imageUrl).into(holder.imageView);
     }
 
     @Override
@@ -49,16 +52,18 @@ public class CompraAdapter extends RecyclerView.Adapter<CompraAdapter.CompraAdap
         TextView nombreProducto;
         TextView marcaProducto;
         TextView precioProducto;
-        TextView vendedor;
+//        TextView vendedor;
         TextView fecha;
+        ImageView imageView;
         public CompraAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
 //            ImageView imagenProducto = itemView.findViewById(R.id.imageViewAdapterCompra);
              nombreProducto = itemView.findViewById(R.id.nombreProductAdapterCompra);
              marcaProducto = itemView.findViewById(R.id.marcaAdapterCompra);
              precioProducto = itemView.findViewById(R.id.precioAdapterCompra);
-             vendedor = itemView.findViewById(R.id.vendedorAdapterCompra);
+//             vendedor = itemView.findViewById(R.id.vendedorAdapterCompra);
              fecha = itemView.findViewById(R.id.fechaAdapterCompra);
+             imageView = itemView.findViewById(R.id.imageViewAdapterCompra);
 
         }
     }
