@@ -9,7 +9,7 @@ describe('User Entity', () => {
     expect(user).toHaveProperty('role');
     expect(user).toHaveProperty('createAt');
     expect(user).toHaveProperty('updateAt');
-    expect(user).toHaveProperty('customer');
-    expect(user).toHaveProperty('favoritos');
+    expect(user).toHaveProperty('customer'); // Se espera que exista la propiedad 'customer'
+    expect(user).toHaveProperty('favoritos'); // Se espera que exista la propiedad 'favoritos'
   });
 });

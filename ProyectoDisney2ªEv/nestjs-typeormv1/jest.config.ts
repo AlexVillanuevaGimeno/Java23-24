@@ -3,7 +3,6 @@
  * https://jestjs.io/docs/en/configuration.html
  */
 
-
 export default {
   
   // All imported modules in your tests should be mocked automatically
@@ -193,9 +192,16 @@ export default {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+  
 };
+// module.exports = {
+//   testMatch: ['**/*.spec.ts'], // Para user.controller.spec.ts
+//   // O
+//   // testMatch: ['**/*-spec.ts'], // Para user.controller-spec.ts
+// };
 module.exports = {
-  testMatch: ['**/*.spec.ts'], // Para user.controller.spec.ts
-  // O
-  // testMatch: ['**/*-spec.ts'], // Para user.controller-spec.ts
-};
+ preset: 'ts-jest',
+ testEnviroment: 'node',
+  //   // O
+  //   // testMatch: ['**/*-spec.ts'], // Para user.controller-spec.ts
+  };

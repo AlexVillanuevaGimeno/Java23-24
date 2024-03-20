@@ -4,8 +4,8 @@ import { UsersService } from '../src/users/services/users.service';
 import { CreateUserDto, UpdateUserDto } from '../src/users/dtos/user.dto';
 
 describe('UsersController', () => {
-  let controller: UsersController;
-  let userService: UsersService;
+  let controller:UsersController;
+  let userService:UsersService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
